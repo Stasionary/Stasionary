@@ -59,6 +59,9 @@ export default function AddressForm() {
                 </Grid> */}
                 
             </Grid>
+            <Typography variant="h6" gutterBottom sx={{ p: { xs: 2, md: 3 } }}>
+                Drop your Location
+            </Typography>
             <MapComponent />
         </React.Fragment>
     );
