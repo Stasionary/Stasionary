@@ -1,7 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Content() {
+  // function Category(category) {
+  //   setCards(cards.filter((card) => category !== card.category));
+  // }
   return (
     <>
       <br />
@@ -21,7 +25,9 @@ export default function Content() {
       <div className="landing-categories">
         <div className="categories-card">
           <div className="image-category-container">
-            <img src="./Images/writing.png" />
+            <Link to="/">
+              <img src="./Images/writing.png" />
+            </Link>
           </div>
           <br />
           <p className="text-center pb-5">Writing Instruments</p>
