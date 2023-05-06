@@ -1,8 +1,8 @@
 .paragraph-hero {
   position: absolute;
-  /* margin: 10rem 22rem; */
-  width: 730px;
-  height: 350px;
+  /* margin: 10rem 23rem; */
+  width: 45.625rem;
+  height: 21.875rem;
   background-color: #f7f8fab5;
   z-index: 100;
   display: flex;
@@ -14,6 +14,10 @@
   background-color: #f1a661;
   padding: 6px 8px;
   color: white;
+}
+.paragraph-hero button:hover {
+  backdrop-filter: white;
+  color: black;
 }
 .paragraph-hero h1 {
   font-size: 32px;
@@ -29,7 +33,11 @@
 .categories-card {
   box-shadow: 0px 0px 4px 0px;
 }
-
+.categories-card:hover,
+.sale-card:hover {
+  scale: 1.1;
+  transition-duration: 1s;
+}
 .image-category-container {
   background-color: rgb(247, 248, 250);
   width: 15.938rem;
@@ -41,13 +49,21 @@
 }
 .flash-sale {
   display: flex;
-  margin: 3rem 8rem;
-  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5rem 0;
+  gap: 2rem;
 }
 .sale-card {
   position: relative;
   border: 1px solid black;
   padding: 1rem;
+}
+.sale-card button {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: rgb(87, 191, 192);
+  color: white;
 }
 .sold-bar {
   width: 50%;
@@ -61,4 +77,31 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.featured-products {
+  padding: 10rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.featured-products {
+  width: 100%;
+  height: 35rem;
+  background-color: #f4efea;
+}
+.featured-prodoct-card {
+  background-color: white;
+  width: 16rem;
+  height: 6.938rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+}
+.featured-products-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3rem;
+  grid-auto-flow: dense;
 }
