@@ -4,8 +4,8 @@ export default function Hero() {
     <>
       <div
         id="default-carousel123"
-        className="relative w-full"
-        data-carousel="slide"
+        className="hero-landing relative w-full"
+        data-carousel="static"
       >
         <div className="relative h-screen overflow-hidden rounded-lg  ">
           {" "}
@@ -25,28 +25,64 @@ export default function Hero() {
 
             <img
               src="./Images/bg-1.png"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
           </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
+          <div
+            className="hidden duration-700 ease-in-out flex justify-center items-center"
+            data-carousel-item
+          >
+            {" "}
+            <div className="paragraph-hero">
+              <h1> The nature candle</h1>
+              <p>
+                The nature candleThe nature candleThe nature candleThe nature
+                candleThe nature candle
+              </p>
+              <button>Discover our collection</button>
+            </div>
             <img
-              src="./Images/bg-2.png"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              src="./Images/bg-5.jpg"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
           </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
+          <div
+            className="hidden duration-700 ease-in-out flex justify-center items-center"
+            data-carousel-item
+          >
+            {" "}
+            <div className="paragraph-hero">
+              <h1> The nature candle</h1>
+              <p>
+                The nature candleThe nature candleThe nature candleThe nature
+                candleThe nature candle
+              </p>
+              <button>Discover our collection</button>
+            </div>
             <img
-              src="./Images/bg-3.png"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              src="./Images/bg-6.jpg"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
           </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
+          <div
+            className="hidden duration-700 ease-in-out flex justify-center items-center"
+            data-carousel-item
+          >
+            {" "}
+            <div className="paragraph-hero">
+              <h1> The nature candle</h1>
+              <p>
+                The nature candleThe nature candleThe nature candleThe nature
+                candleThe nature candle
+              </p>
+              <button>Discover our collection</button>
+            </div>
             <img
-              src="./Images/bg-3.png"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              src="./Images/bg-7.jpg"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
           </div>
@@ -103,9 +139,9 @@ export default function Hero() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M15 19l-7-7 7-7"
               ></path>
             </svg>
@@ -127,9 +163,9 @@ export default function Hero() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M9 5l7 7-7 7"
               ></path>
             </svg>
