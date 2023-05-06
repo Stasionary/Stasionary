@@ -3,16 +3,8 @@ import React from 'react'
 export const ProductDetails = () => {
     return (
         <>
-            {/*
-  This component uses @tailwindcss/typography
 
-  yarn add @tailwindcss/typography
-  npm install @tailwindcss/typography
-
-  plugins: [require('@tailwindcss/typography')]
-*/}
-
-            <section>
+            <section className='mb-10 mt-10'>
                 <div className="relative mx-auto max-w-screen-xl px-4 py-8">
                     <div>
                         <h1 className="text-2xl text-black font-bold lg:text-3xl">Paper clips with different colors</h1>
@@ -191,6 +183,109 @@ export const ProductDetails = () => {
                         </div>
 
 
+                    </div>
+                </div>
+            </section>
+            <hr className="h-1 mb-20 mx-8  bg-gray-200 border-0 dark:bg-gray-400" />
+            <section className='mx-10'>
+                <h1 className='text-3xl text-black ml-[5vw] mb-5 '>You might also like</h1>
+                <div className='flex justify-around flex-wrap mb-12'>
+                  
+                    <div key='' className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md">
+                        <a href="#">
+                            <img
+                                className="hover:grow hover:shadow-lg"
+                                src="https://img.ltwebstatic.com/images3_pi/2022/09/30/1664514937ae81a71bbbd41ede792f992b6586ebe4.webp"
+                            />
+                            <div className="flex items-center mt-5 justify-between">
+                                <p className="">paper clips</p>
+                                <p className="ml-20  text-gray-900">25 JD</p>
+                            </div>
+
+                            <div className='flex justify-center mt-3'>
+
+                                <button className="btn btn-outline ">Add to cart
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="file: ml-2 h-6 w-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                    </svg>
+
+                                </button>
+                            </div>
+
+                        </a>
+                    </div>
+                    <div key='' className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md">
+                        <a href="#">
+                            <img
+                                className="hover:grow hover:shadow-lg"
+                                src="https://img.ltwebstatic.com/images3_pi/2022/09/30/1664514937ae81a71bbbd41ede792f992b6586ebe4.webp"
+                            />
+                            <div className="flex items-center mt-5 justify-between">
+                                <p className="">paper clips</p>
+                                <p className="ml-20 text-gray-900">25 JD</p>
+                            </div>
+
+                            <div className='flex justify-center mt-3'>
+
+                                <button className="btn btn-outline ">Add to cart
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="file: ml-2 h-6 w-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                    </svg>
+
+                                </button>
+                            </div>
+
+                        </a>
+                    </div>
+                    <div key='' className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md">
+                        <a href="#">
+                            <img
+                                className="hover:grow hover:shadow-lg"
+                                src="https://img.ltwebstatic.com/images3_pi/2022/09/30/1664514937ae81a71bbbd41ede792f992b6586ebe4.webp"
+                            />
+                            <div className="flex items-center mt-5 justify-between">
+                                <p className="">paper clips</p>
+                                <p className="ml-20  text-gray-900">25 JD</p>
+                            </div>
+
+                            <div className='flex justify-center mt-3'>
+
+                                <button className="btn btn-outline ">Add to cart
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="file: ml-2 h-6 w-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                    </svg>
+
+                                </button>
+                            </div>
+
+                        </a>
+                    </div>
+                    <div key='' className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md">
+                        <a href="#">
+                            <img
+                                className="hover:grow hover:shadow-lg"
+                                src="https://img.ltwebstatic.com/images3_pi/2022/09/30/1664514937ae81a71bbbd41ede792f992b6586ebe4.webp"
+                            />
+                            <div className="flex items-center mt-5 justify-between">
+                                <p className="">paper clips</p>
+                                <p className="ml-20  text-gray-900">25 JD</p>
+                            </div>
+
+                            <div className='flex justify-center mt-3'>
+
+                                <button className="btn btn-outline ">Add to cart
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="file: ml-2 h-6 w-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                    </svg>
+
+                                </button>
+                            </div>
+
+                        </a>
                     </div>
                 </div>
             </section>
