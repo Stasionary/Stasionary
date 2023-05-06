@@ -56,7 +56,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="h-20 w-full bg-slate-300 flex justify-center items-center text-blue-950		">
-        ©Paperckip All Rights Reserved.
+        ©Paperclip All Rights Reserved.
       </div>
     </footer>
   );
