@@ -5,7 +5,7 @@ export default function Hero() {
       <div
         id="default-carousel123"
         className="hero-landing relative w-full"
-        data-carousel="static"
+        data-carousel="slide"
       >
         <div className="relative h-screen overflow-hidden rounded-lg  ">
           {" "}
