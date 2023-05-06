@@ -19,7 +19,7 @@ import Review from './Review';
 function Copyright() {
     return (
         <Typography variant="body2" color="text.secondary" align="center">
-            {'Copyright © '}
+            {'Copyright Â© '}
             <Link color="inherit" href="https://mui.com/">
                 Your Website
             </Link>{' '}
@@ -69,11 +69,11 @@ export default function Checkout() {
                     borderBottom: (t) => `1px solid ${t.palette.divider}`,
                 }}
             >
-                <Toolbar>
+                {/* <Toolbar>
                     <Typography variant="h6" color="inherit" noWrap>
                         Company name
                     </Typography>
-                </Toolbar>
+                </Toolbar> */}
             </AppBar>
             <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
                 <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
