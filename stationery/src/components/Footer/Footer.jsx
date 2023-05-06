@@ -12,7 +12,7 @@ export default function Footer() {
         <br />
       </div>
 
-      <div className="flex justify-evenly gap-10 h-72	">
+      <div className="flex justify-evenly gap-10 h-72 flex-wrap	md:justify-center">
         {" "}
         <div className="flex flex-col gap-10">
           <h1 className="text-4xl flex gap-10">
@@ -55,8 +55,8 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="h-20 w-full bg-slate-300 flex justify-center items-center text-blue-950		">
-        ©Paperckip All Rights Reserved.
+      <div className="h-20 w-full bg-slate-300 flex justify-center items-center text-blue-950 flex-wrap">
+        ©Paperclip All Rights Reserved.
       </div>
     </footer>
   );

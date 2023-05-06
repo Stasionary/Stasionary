@@ -28,52 +28,52 @@ export default function Content() {
         </div>
         <div className="categories-card">
           <div className="image-category-container">
-            <img src="./Images/writing.png" />
+            <img src="./Images/PaperProduct.png" />
           </div>
           <br />
-          <p className="text-center pb-5">Writing Instruments</p>
+          <p className="text-center pb-5">Paper Products</p>
         </div>
         <div className="categories-card">
           <div className="image-category-container">
-            <img src="./Images/writing.png" />
+            <img src="./Images/Desk Accessories.png" />
           </div>
           <br />
-          <p className="text-center pb-5">Writing Instruments</p>
+          <p className="text-center pb-5">Desk Accessories</p>
         </div>
         <div className="categories-card">
           <div className="image-category-container">
-            <img src="./Images/writing.png" />
+            <img src="./Images/Art Supplies.png" />
           </div>
           <br />
-          <p className="text-center pb-5">Writing Instruments</p>
+          <p className="text-center pb-5">Art Supplies</p>
         </div>
         <div className="categories-card">
           <div className="image-category-container">
-            <img src="./Images/writing.png" />
+            <img src="./Images/School Supplies.png" />
           </div>
           <br />
-          <p className="text-center pb-5">Writing Instruments</p>
+          <p className="text-center pb-5">School Supplies</p>
         </div>
         <div className="categories-card">
           <div className="image-category-container">
-            <img src="./Images/writing.png" />
+            <img src="./Images/Presentation Supplies.png" />
           </div>
           <br />
-          <p className="text-center pb-5">Writing Instruments</p>
+          <p className="text-center pb-5">Presentation Supplies</p>
         </div>
         <div className="categories-card">
           <div className="image-category-container">
-            <img src="./Images/writing.png" />
+            <img src="./Images/Calendars and Planners.png" />
           </div>
           <br />
-          <p className="text-center pb-5">Writing Instruments</p>
+          <p className="text-center pb-5">Calendars and Planners</p>
         </div>
         <div className="categories-card">
           <div className="image-category-container">
-            <img src="./Images/writing.png" />
+            <img src="./Images/Filing and Organization.png" />
           </div>
           <br />
-          <p className="text-center pb-5">Writing Instruments</p>
+          <p className="text-center pb-5">Filing and Organization</p>
         </div>
       </div>
 
@@ -120,8 +120,8 @@ export default function Content() {
           </div>
           <img src="./Images/notebook.png" height={280} width={200} />
           <br />
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div class="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
+            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
           </div>
           <br />
           <div className="flex justify-around">
@@ -141,8 +141,8 @@ export default function Content() {
           </div>
           <img src="./Images/notebook.png" height={280} width={200} />
           <br />
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div class="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
+            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
           </div>
           <br />
           <div className="flex justify-around">
@@ -162,8 +162,8 @@ export default function Content() {
           </div>
           <img src="./Images/notebook.png" height={280} width={200} />
           <br />
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div class="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
+            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
           </div>
           <br />
           <div className="flex justify-around">
@@ -183,8 +183,8 @@ export default function Content() {
           </div>
           <img src="./Images/notebook.png" height={280} width={200} />
           <br />
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div class="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
+            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
           </div>
           <br />
           <div className="flex justify-around">
@@ -203,7 +203,6 @@ export default function Content() {
             of Classical physics: Newtonian mechanics{" "}
           </p>
           <br />
-          <a href="">Learn more </a>
         </div>
         <div className="featured-products-cards">
           <div
@@ -270,8 +269,8 @@ export default function Content() {
           </div>
           <img src="./Images/notebook.png" height={280} width={200} />
           <br />
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div class="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
+            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
           </div>
           <br />
           <div className="flex justify-around">
@@ -291,8 +290,8 @@ export default function Content() {
           </div>
           <img src="./Images/notebook.png" height={280} width={200} />
           <br />
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div class="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
+            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
           </div>
           <br />
           <div className="flex justify-around">
@@ -312,8 +311,8 @@ export default function Content() {
           </div>
           <img src="./Images/notebook.png" height={280} width={200} />
           <br />
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div class="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
+            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
           </div>
           <br />
           <div className="flex justify-around">
@@ -333,8 +332,8 @@ export default function Content() {
           </div>
           <img src="./Images/notebook.png" height={280} width={200} />
           <br />
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div class="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
+            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
           </div>
           <br />
           <div className="flex justify-around">
