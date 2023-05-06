@@ -17,7 +17,7 @@ export const ProductDetails = () => {
                     <div>
                         <h1 className="text-2xl text-black font-bold lg:text-3xl">Paper clips with different colors</h1>
 
-                        <p className="mt-1 text-sm text-gray-500">SKU: #012345</p>
+                        <p className="mt-1 text-sm text-gray-500">Id:</p>
                     </div>
 
                     <div className="grid gap-8 lg:grid-cols-4 lg:items-start">
@@ -51,44 +51,12 @@ export const ProductDetails = () => {
                                 </div> */}
                             </div>
 
-                            <ul className="mt-1 flex gap-1">
-                                <li>
-                                    <img
-                                        alt="Tee"
-                                        src="https://images.unsplash.com/photo-1581289761977-a543e3dd6c86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=683&q=80"
-                                        className="h-16 w-16 rounded-md object-cover"
-                                    />
-                                </li>
 
-                                <li>
-                                    <img
-                                        alt="Tee"
-                                        src="https://images.unsplash.com/photo-1581289761977-a543e3dd6c86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=683&q=80"
-                                        className="h-16 w-16 rounded-md object-cover"
-                                    />
-                                </li>
-
-                                <li>
-                                    <img
-                                        alt="Tee"
-                                        src="https://images.unsplash.com/photo-1581289761977-a543e3dd6c86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=683&q=80"
-                                        className="h-16 w-16 rounded-md object-cover"
-                                    />
-                                </li>
-
-                                <li>
-                                    <img
-                                        alt="Tee"
-                                        src="https://images.unsplash.com/photo-1581289761977-a543e3dd6c86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=683&q=80"
-                                        className="h-16 w-16 rounded-md object-cover"
-                                    />
-                                </li>
-                            </ul>
                         </div>
 
                         <div className="lg:sticky lg:top-0">
                             <form className="space-y-4 lg:pt-8">
-                                <fieldset>
+                                {/* <fieldset>
                                     <legend className="text-lg font-bold">Color</legend>
 
                                     <div className="mt-2 flex flex-wrap gap-1">
@@ -158,10 +126,10 @@ export const ProductDetails = () => {
                                             ></span>
                                         </label>
                                     </div>
-                                </fieldset>
+                                </fieldset> */}
 
                                 <fieldset>
-                                    <legend className="text-lg font-bold">Material</legend>
+                                    <legend className="text-lg font-bold">Category</legend>
 
                                     <div className="mt-2 flex flex-wrap gap-1">
                                         <label htmlFor="material_cotton" className="cursor-pointer">
@@ -176,7 +144,7 @@ export const ProductDetails = () => {
                                             <span
                                                 className="block rounded-full border border-gray-200 px-3 py-1 text-xs peer-checked:bg-gray-100"
                                             >
-                                                metal
+                                                from js
                                             </span>
                                         </label>
 
@@ -189,18 +157,14 @@ export const ProductDetails = () => {
                                                 checked
                                             />
 
-                                            <span
-                                                className="block rounded-full border border-gray-200 px-3 py-1 text-xs peer-checked:bg-gray-100"
-                                            >
-                                                Wood
-                                            </span>
+
                                         </label>
                                     </div>
                                 </fieldset>
 
                                 <div className="rounded border bg-gray-100 p-4">
                                     <p className="text-sm">
-                                        <span className="block"> Pay as low as $3/mo with 0% APR. </span>
+                                        <span className="block"> Description </span>
 
                                         <a href="" className="mt-1 inline-block underline"> Find out more </a>
                                     </p>
@@ -217,33 +181,19 @@ export const ProductDetails = () => {
                                     Add to cart
                                 </button>
 
-                                <button
+                                {/* <button
                                     type="button"
                                     className="w-full rounded border border-gray-300 bg-gray-100 px-6 py-3 text-sm font-bold uppercase tracking-wide"
                                 >
                                     Notify when on sale
-                                </button>
+                                </button> */}
                             </form>
                         </div>
 
-                        <div className="lg:col-span-3">
-                            <div className="prose max-w-none">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam totam
-                                    eos iusto repellat blanditiis voluptate aspernatur, quae nemo
-                                    exercitationem cum debitis! Sint consectetur laborum tempora
-                                    repellat odit. Impedit quasi reprehenderit harum illum sequi
-                                    provident soluta cum quisquam odit possimus? Officia illum saepe
-                                    magnam nostrum, officiis placeat iure itaque cumque voluptate?
-                                </p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </section>
-
-
-
         </>
 
     )
