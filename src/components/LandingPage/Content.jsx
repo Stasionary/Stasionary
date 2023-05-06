@@ -1,11 +1,18 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, Outlet } from "react-router-dom";
-
+import Calenders from "../CalendarsPlanners.json";
+import Filling from "../Filling.json";
+import SchoolSupplies from "../SchoolSupplies.json";
+import Presentation from "../Presentation.json";
 export default function Content() {
   // function Category(category) {
   //   setCards(cards.filter((card) => category !== card.category));
   // }
+  console.log(Calenders);
+  console.log(Filling);
+  console.log(SchoolSupplies);
+  console.log(Presentation);
   return (
     <>
       <br />
