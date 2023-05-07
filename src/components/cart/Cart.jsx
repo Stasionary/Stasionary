@@ -3,8 +3,49 @@ import Navbar from "../Navbar/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import "./cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import Products from "../JsonFiels/Products.json";
 
 export const Cart = () => {
+  const [change, setChange] = useState();
+  const handleDelete = (id) => {
+    setChange(Products.filter((card) => card.id !== id));
+  };
+
+  // function calculatePrice() {
+  // let total = 0;
+  // cards.forEach((card) => {
+  //   total += card.price * (card.count);
+  // });
+  // return total;
+  // }
+
+  //       const increaseCount = (id) => {
+  //         setCards((prevState) =>
+  //           prevState.map((card) =>
+  //             card.id === id ? { ...card, count: card.count + 1 } : card
+  //           )
+  //         );
+
+  //       };
+
+  //       const decreaseCount = (id) => {
+  //         setCards((prevState) =>
+  //           prevState.map((card) =>
+  //             card.id === id && card.count > 0 ? { ...card, count: card.count - 1 } : card
+
+  //           )
+  //         );
+  //       };
+  //       useEffect(() => {
+  //           cards.forEach(card => {
+  //             if (card.count === 0) {
+  //               handleDelete(card.id);
+
+  //             }
+  //           });
+  //         }, [cards]);
+
   const AddedToCart = JSON.parse(localStorage.getItem("newItem") || "[]");
   const Items = AddedToCart.map((item) => {
     return (
@@ -38,7 +79,11 @@ export const Cart = () => {
             />
           </form>
 
-          <button className="text-gray-600 transition hover:text-red-600">
+          <button
+            className="text-gray-600 transition hover:text-red-600"
+            onClick={handleDelete}
+            id={item.id}
+          >
             <span className="sr-only">Remove item</span>
 
             <svg
