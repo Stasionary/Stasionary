@@ -58,6 +58,7 @@
 .sale-card {
   position: relative;
   padding: 1rem;
+  width: 15%;
 }
 
 .discount-badge {

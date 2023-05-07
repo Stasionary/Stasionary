@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 import Products from "../Products.json";
 
 export default function Content() {
-  // function Category(category) {
-  //   setCards(cards.filter((card) => category !== card.category));
-  // }
+  const [item, setItem] = useState([]);
+
   const saleCards = Products.filter((card) => card.Sale);
   const salePriceCards = saleCards.map((product) => {
     const priceAfter = (product.Sale / 100) * product.price;
     const salePrice = product.price - priceAfter;
     const roundedPrice = salePrice.toFixed(1);
-
     return { ...product, roundedPrice };
   });
+
+  function AddToCart(event) {
+    event.preventDefault();
+    const selectedProduct = Products.find(
+      (product) => product.id === event.target.id
+    );
+    // Retrieve previous items from local storage
+    const storedItems = JSON.parse(localStorage.getItem("newItem")) || [];
+    // Add the new item to the array of stored items
+    const updatedItems = [...storedItems, selectedProduct];
+
+    setItem(() => [...updatedItems]);
+
+    localStorage.setItem("newItem", JSON.stringify(updatedItems));
+  }
+
   return (
     <>
       <br />
@@ -105,10 +119,10 @@ export default function Content() {
         </h3>
       </div>
       <div className="flash-sale">
-        {salePriceCards.slice(0, 5).map((product, index) => (
+        {salePriceCards.map((product, index) => (
           <div
             key={index}
-            className="sale-card w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-primary m-5 rounded-md"
+            className="sale-card w-1/2 md:w-1/3  p-6 flex flex-col bg-primary m-5 rounded-md"
           >
             <div className="discount-badge">
               <svg
@@ -133,12 +147,18 @@ export default function Content() {
                 </svg>
               </div>
               <p className="pt-1 text-gray-900 text-red-600	">
-                {product.price} JD{" "}
-                <span className="text-xs line-through	">
-                  {product.roundedPrice}JD
+                {product.roundedPrice}JD{" "}
+                <span className="text-xs line-through mt-3">
+                  {product.price}JD
                 </span>
               </p>
-              <button className="btn btn-outline">Add to cart</button>
+              <button
+                className="btn btn-outline mt-3"
+                id={product.id}
+                onClick={AddToCart}
+              >
+                Add to cart
+              </button>
             </a>
           </div>
         ))}
