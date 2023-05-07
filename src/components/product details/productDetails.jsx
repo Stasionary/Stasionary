@@ -1,15 +1,31 @@
 import React from 'react'
+import Products from '../Products.json'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 export const ProductDetails = () => {
+
+    //     const [productDetails, setproductDetails] = useState(null)
+    //     useEffect(() => {
+
+    //         setproductDetails((prevproduct) => {
+    //             return (
+    //                 prevproduct=  JSON.parse(window.sessionStorage.getItem("newItem")
+    //                 )
+    //         )
+    //     })
+    // },[])
+    // let thisproduct =productDetails.pop();
+    let prevproduct = JSON.parse(window.sessionStorage.getItem("newItem"))
     return (
         <>
 
             <section className='mb-10 mt-10'>
                 <div className="relative mx-auto max-w-screen-xl px-4 py-8">
                     <div>
-                        <h1 className="text-2xl text-black font-bold lg:text-3xl">Paper clips with different colors</h1>
+                        <h1 className="text-2xl text-black font-bold lg:text-3xl">{prevproduct.title }</h1>
 
-                        <p className="mt-1 text-sm text-gray-500">Id:</p>
+                        <p className="mt-1 text-sm text-gray-500">Id:{prevproduct.id}</p>
                     </div>
 
                     <div className="grid gap-8 lg:grid-cols-4 lg:items-start">
@@ -17,7 +33,7 @@ export const ProductDetails = () => {
                             <div className="relative mt-4">
                                 <img
                                     alt="Tee"
-                                    src="https://images.unsplash.com/photo-1539870113056-c6d7439045ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1232&q=80"
+                                    src={prevproduct.img}
                                     className="h-72 w-full rounded-xl object-cover lg:h-[540px]"
                                 />
 
@@ -136,7 +152,7 @@ export const ProductDetails = () => {
                                             <span
                                                 className="block rounded-full border border-gray-200 px-3 py-1 text-xs peer-checked:bg-gray-100"
                                             >
-                                                from js
+                                                {prevproduct.category}
                                             </span>
                                         </label>
 
@@ -155,10 +171,11 @@ export const ProductDetails = () => {
                                 </fieldset>
 
                                 <div className="rounded border bg-gray-100 p-4">
-                                    <p className="text-sm">
-                                        <span className="block"> Description </span>
+                                    <p className="">
+                                        <span className="block text-black text-base mb-2"> Description </span>
 
-                                        <a href="" className="mt-1 inline-block underline"> Find out more </a>
+                                        {/* <a href="" className="mt-1 inline-block underline"> Find out more </a> */}
+                                        <p className='text-sm'>{prevproduct.description}</p>
                                     </p>
                                 </div>
 
@@ -190,7 +207,7 @@ export const ProductDetails = () => {
             <section className='mx-10'>
                 <h1 className='text-3xl text-black ml-[5vw] mb-5 '>You might also like</h1>
                 <div className='flex justify-around flex-wrap mb-12'>
-                  
+
                     <div key='' className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md">
                         <a href="#">
                             <img
