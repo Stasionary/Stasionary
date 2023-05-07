@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import Products from '../Products.json'
+
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import DeskAccessories from "../DeskAccessories.json";
-import Products from "../Products.json";
 import { Link } from "react-router-dom";
+import Products from "../JsonFiels/Products.json";
 
 const theme = createTheme({
   palette: {
@@ -17,6 +17,7 @@ const theme = createTheme({
 
 const ProductsPage = () => {
   const navigate=useNavigate()
+
   const [item, setItem] = useState([]);
 
   function AddToCart(event) {
