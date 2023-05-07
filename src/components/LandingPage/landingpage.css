@@ -61,11 +61,11 @@
   justify-content: center;
   margin: 5rem 0;
   gap: 2rem;
+  color: black;
 }
 
 .sale-card {
   position: relative;
-  border: 1px solid black;
   padding: 1rem;
 }
 
