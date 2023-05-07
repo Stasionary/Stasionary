@@ -2,17 +2,75 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
+import app from "../../firebase.config";
+import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
+import { FacebookAuthProvider } from "firebase/auth";
+// import { useContext } from "react";
+
+// login with google
+const googleProvider = new GoogleAuthProvider();
+// login with facebook
+const facebookProvider = new FacebookAuthProvider();
+const auth = getAuth(app);
+
 export default function Login() {
+  // const userData = useContext(useContext);
+
+  const handleLoginFacebook = async () => {
+    window.localStorage.clear();
+    signInWithPopup(auth, facebookProvider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        window.localStorage.setItem("user", JSON.stringify(user));
+      })
+      .then(() => {
+        navigate("/profile");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleLoginGoogle = async () => {
+    window.localStorage.clear();
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        window.localStorage.setItem("user", JSON.stringify(user));
+      })
+      .then(() => {
+        navigate("/profile");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  // handle submit on click button
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(formData);
+  const navigate = useNavigate();
+  const user = JSON.parse(window.localStorage.getItem("user"));
+  //   useEffect(() => {
+  //     const user = JSON.parse(window.localStorage.getItem("user"));
+  //     // console.log(user);
+  //   }, []);
+
+  const [IsFound, setIsFound] = useState(false);
+
+  // check if email and password === to email and password in local storage
+  function checkAccount(user) {
+    if (formData.email === user.email && formData.password === user.password) {
+      setIsFound(true);
+    } else {
+      setIsFound(false);
+    }
   }
+
   // handle change on input field
   function handleChange(event) {
     const { name, value } = event.target;
@@ -24,12 +82,24 @@ export default function Login() {
     });
   }
 
+  // handle submit on click button
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(user);
+    checkAccount(user);
+    IsFound
+      ? navigate("/")
+      : alert(
+          "email or password are inccorect , please check your info then try again"
+        );
+  }
+
   return (
     <>
       <div
         className="w-screen h-screen bg-zinc-900 flex items-center px-4"
         style={{
-          backgroundImage: 'URL("../../public/img/symbol-scatter-haikei.svg")',
+          backgroundImage: 'URL("./images/symbol-scatter-haikei.svg")',
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
@@ -38,14 +108,20 @@ export default function Login() {
           <h1 className="text-3xl my-4 font-bold">
             Login <span style={{ color: "#F1A661" }}>Now</span>
           </h1>
-          <p className="my-3">
+          <p className="my-3 font-normal ">
             Hey, Enter Your Details to Get Sign in to Your Account{" "}
           </p>
-          <button className="w-full  rounded-lg shadow-lg  bg-zinc-900 my-3 text-white p-2 hover:bg-zinc-950 transition flex items-center gap-2 justify-center ">
+          <button
+            onClick={handleLoginGoogle}
+            className="w-full  rounded-lg shadow-lg  bg-zinc-900 my-3 text-white p-2 hover:bg-zinc-950 transition flex items-center gap-2 justify-center "
+          >
             {" "}
             <FcGoogle /> Sign In with Google
           </button>
-          <button className="w-full  rounded-lg shadow-lg  bg-blue-900 my-3 text-white p-2 hover:bg-blue-950 transition flex items-center gap-2 justify-center ">
+          <button
+            onClick={handleLoginFacebook}
+            className="w-full  rounded-lg shadow-lg  bg-blue-900 my-3 text-white p-2 hover:bg-blue-950 transition flex items-center gap-2 justify-center "
+          >
             {" "}
             <FaFacebook /> Sign In with Facebook
           </button>
