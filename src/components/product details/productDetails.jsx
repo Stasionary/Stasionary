@@ -18,6 +18,9 @@ const navigate=useNavigate()
     // },[])
     // let thisproduct =productDetails.pop();
 
+
+
+
     let prevproduct = JSON.parse(window.sessionStorage.getItem("newItem") || "[]")
     return (
         <>
