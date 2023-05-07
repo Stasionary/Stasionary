@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { ItemContext } from "../../App";
 
 import Products from "../JsonFiels/Products.json";
 
 export default function Content() {
-
-  const [item, setItem] = useState([]);
+  const { item, setItem } = useContext(ItemContext);
   const [timeLeft, setTimeLeft] = useState(18000);
   const hours = Math.floor(timeLeft / 3600);
   const minutes = Math.floor((timeLeft % 3600) / 60);
@@ -29,7 +29,6 @@ export default function Content() {
     return { ...product, roundedPrice };
   });
 
-
   function AddToCart(event) {
     event.preventDefault();
     const selectedProduct = Products.find(
@@ -50,10 +49,7 @@ export default function Content() {
       <br />
       <br />
 
-      <h1
-        className="text-center text-3xl">
-        Categories
-      </h1>
+      <h1 className="text-center text-3xl">Categories</h1>
 
       <br />
       <p className="text-center">
