@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import Products from '../Products.json'
-
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link } from "react-router-dom";
 import Products from "../JsonFiels/Products.json";
+import { Link } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -16,8 +15,7 @@ const theme = createTheme({
 });
 
 const ProductsPage = () => {
-  const navigate=useNavigate()
-
+  const navigate = useNavigate()
   const [item, setItem] = useState([]);
 
   function AddToCart(event) {
@@ -40,9 +38,9 @@ const ProductsPage = () => {
     const selectedProduct1 = Products.filter(
       (product) => product.id === event.target.id
     );
-    let [array]=selectedProduct1
+    let [array] = selectedProduct1
     // Retrieve previous items from local storage
-    
+
     // Add the new item to the array of stored items
 
 
@@ -58,7 +56,7 @@ const ProductsPage = () => {
         className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-primary m-5 rounded-md"
       >
         <a href="#">
-          <Link to="/ProductDetailsPage" ><img onClick={AddToProductDetails} className="hover:grow hover:shadow-lg" src={product.img} /></Link>
+          <img id={product.id} onClick={AddToProductDetails} className="hover:grow hover:shadow-lg" src={product.img} />
           <div className="flex items-center mt-5 justify-between">
             <p className="" >{product.title}</p>
             <p className="ml-20  text-gray-900">{product.price} JD</p>
@@ -86,7 +84,7 @@ const ProductsPage = () => {
                 />
               </svg>
             </button>
-             <button className="btn btn-outline-blue" id={product.id} onClick={AddToProductDetails}> Details</button>
+            <button className="btn btn-outline-blue" id={product.id} onClick={AddToProductDetails}> Details</button>
           </div>
         </a>
       </div>
