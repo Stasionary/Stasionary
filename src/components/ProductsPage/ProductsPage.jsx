@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 // import Products from '../Products.json'
 
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import DeskAccessories from "../DeskAccessories.json";
+import { Link } from "react-router-dom";
 import Products from "../JsonFiels/Products.json";
 
 const theme = createTheme({
@@ -16,6 +16,7 @@ const theme = createTheme({
 });
 
 const ProductsPage = () => {
+  const navigate=useNavigate()
 
   const [item, setItem] = useState([]);
 
@@ -33,6 +34,23 @@ const ProductsPage = () => {
 
     localStorage.setItem("newItem", JSON.stringify(updatedItems));
   }
+
+  function AddToProductDetails(event) {
+    event.preventDefault();
+    const selectedProduct1 = Products.filter(
+      (product) => product.id === event.target.id
+    );
+    let [array]=selectedProduct1
+    // Retrieve previous items from local storage
+    
+    // Add the new item to the array of stored items
+
+
+    sessionStorage.setItem("newItem", JSON.stringify(array));
+    navigate("/ProductDetailsPage")
+  }
+
+
   const Cards = Products.map((product, index) => {
     return (
       <div
@@ -40,13 +58,13 @@ const ProductsPage = () => {
         className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-primary m-5 rounded-md"
       >
         <a href="#">
-          <img className="hover:grow hover:shadow-lg" src={product.img} />
+          <Link to="/ProductDetailsPage" ><img onClick={AddToProductDetails} className="hover:grow hover:shadow-lg" src={product.img} /></Link>
           <div className="flex items-center mt-5 justify-between">
-            <p className="">{product.title}</p>
+            <p className="" >{product.title}</p>
             <p className="ml-20  text-gray-900">{product.price} JD</p>
           </div>
 
-          <div className="flex justify-center mt-3">
+          <div className="flex justify-around mt-3">
             <button
               className="btn btn-outline "
               id={product.id}
@@ -68,6 +86,7 @@ const ProductsPage = () => {
                 />
               </svg>
             </button>
+             <button className="btn btn-outline-blue" id={product.id} onClick={AddToProductDetails}> Details</button>
           </div>
         </a>
       </div>
