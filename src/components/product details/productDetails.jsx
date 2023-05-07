@@ -1,20 +1,46 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const ProductDetails = () => {
+
+const navigate=useNavigate()
+    //     const [productDetails, setproductDetails] = useState(null)
+    //     useEffect(() => {
+
+    //         setproductDetails((prevproduct) => {
+    //             return (
+    //                 prevproduct=  JSON.parse(window.sessionStorage.getItem("newItem")
+    //                 )
+    //         )
+    //     })
+    // },[])
+    // let thisproduct =productDetails.pop();
+
+
 
 
     let prevproduct = JSON.parse(window.sessionStorage.getItem("newItem") || "[]")
     return (
         <>
 
+
+            
             <section className='mb-10 mt-10'>
                 <div className="relative mx-auto max-w-screen-xl px-4 py-8">
                     <div>
                         <h1 className="text-2xl text-black font-bold lg:text-3xl">{prevproduct.title}</h1>
 
-                        <p className="mt-1 text-sm text-gray-500">Id:{prevproduct.id}</p>
+                        <div ><p className="mt-1 text-sm text-gray-500">Id:{prevproduct.id}</p>
+                            <div className="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a>Home</a></li>
+                                    <li ><a>Documents</a></li>
+                                    <li>Add Document</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="grid gap-8 lg:grid-cols-4 lg:items-start">
