@@ -3,6 +3,8 @@ import React from 'react'
 import Pagination from '@mui/material/Pagination';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import DeskAccessories from '../DeskAccessories.json'
+import Filling from '../Filling.json'
+import SchoolSupplies from '../SchoolSupplies.json'
 const theme = createTheme({
     palette: {
         primary: {
@@ -13,8 +15,8 @@ const theme = createTheme({
 
 
 const ProductsPage = () => {
-    console.log(DeskAccessories)
-    const Cards = DeskAccessories.map((product, index) => {
+    console.log(SchoolSupplies)
+    const Cards = SchoolSupplies.map((product, index) => {
         return (
 
 

@@ -9,21 +9,20 @@ export default function Content() {
   // function Category(category) {
   //   setCards(cards.filter((card) => category !== card.category));
   // }
-  console.log(Calenders);
-  console.log(Filling);
-  console.log(SchoolSupplies);
-  console.log(Presentation);
+
+
+
+
   return (
     <>
       <br />
       <br />
       <br />
       <h1
-        className="text-center text-3xl
-"
-      >
+        className="text-center text-3xl">
         Categories
       </h1>
+
       <br />
       <p className="text-center">
         Order stationery easily and hassle-free on our eCommerce website. Shop
@@ -38,6 +37,8 @@ export default function Content() {
           </div>
           <br />
           <p className="text-center pb-5">Writing Instruments</p>
+          <button className="btn btn-outline">Button</button>
+
         </div>
         <div className="categories-card">
           <div className="image-category-container">
