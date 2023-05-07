@@ -1,9 +1,20 @@
 import React from 'react'
-import Products from '../Products.json'
+// import Products from '../Products.json'
+import Pagination from '@mui/material/Pagination';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import DeskAccessories from '../DeskAccessories.json'
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#867070', // replace with your desired color
+        },
+    },
+});
+
 
 const ProductsPage = () => {
-    console.log(Products)
-    const Cards = Products.map((product, index) => {
+    console.log(DeskAccessories)
+    const Cards = DeskAccessories.map((product, index) => {
         return (
 
 
@@ -107,6 +118,12 @@ const ProductsPage = () => {
                     </div>
                 </section>
 
+                {/* <Pagination count={2} color="primary" /> */}
+                {/* <Pagination count={10} color="primary" className='flex justify-center mb-5' /> */}
+                {/* <Pagination count={10} variant="outlined" color="secondary" className='flex justify-center mb-5' /> */}
+                <ThemeProvider theme={theme}>
+                    <Pagination count={2} color="primary" className='flex justify-center mb-5' />
+                </ThemeProvider>
 
 
 

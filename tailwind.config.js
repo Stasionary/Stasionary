@@ -5,8 +5,11 @@ module.exports = {
     extend: {
       colors: {
         primary: "#F5EBEB",
+        pagination: "#867070"
       }
     },
   },
   plugins: [require("daisyui")],
 };
+
+

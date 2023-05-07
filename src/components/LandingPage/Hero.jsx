@@ -24,7 +24,7 @@ export default function Hero() {
             </div>
 
             <img
-              src="./Images/bg-1.png"
+              src="https://images.pexels.com/photos/5594264/pexels-photo-5594264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
@@ -43,7 +43,7 @@ export default function Hero() {
               <button>Discover our collection</button>
             </div>
             <img
-              src="./Images/bg-5.jpg"
+              src="https://images.pexels.com/photos/3690543/pexels-photo-3690543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
@@ -62,7 +62,7 @@ export default function Hero() {
               <button>Discover our collection</button>
             </div>
             <img
-              src="./Images/bg-6.jpg"
+              src="https://images.pexels.com/photos/9742971/pexels-photo-9742971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
@@ -81,7 +81,7 @@ export default function Hero() {
               <button>Discover our collection</button>
             </div>
             <img
-              src="./Images/bg-7.jpg"
+              src="https://images.pexels.com/photos/1007026/pexels-photo-1007026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
