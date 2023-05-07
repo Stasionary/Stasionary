@@ -53,21 +53,13 @@
   justify-content: center;
   margin: 5rem 0;
   gap: 2rem;
+  color: black;
 }
 .sale-card {
   position: relative;
-  border: 1px solid black;
   padding: 1rem;
 }
-.sale-card button {
-  margin-top: 1rem;
-  width: 100%;
-  background-color: rgb(87, 191, 192);
-  color: white;
-}
-.sold-bar {
-  width: 50%;
-}
+
 .discount-badge {
   position: absolute;
   background-color: #facf19;

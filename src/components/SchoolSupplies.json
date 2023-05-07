@@ -4,14 +4,16 @@
     "description": "10pcs/Lot Ultra Fine Finance Gel Pen Black/Blue/Red Ink Refills Rods Gel Pen For School Office Exam Supplies Stationery",
     "price": 9.99,
     "img": "https://img.ltwebstatic.com/images3_pi/2022/09/29/1664417122c013fd55064c76a21e6fafbff0cf2c8e_thumbnail_900x.webp",
-    "category": "School Supplies"
+    "category": "School Supplies",
+    "Sale": 33
   },
   {
     "title": "Memo Pad",
     "description": "Transparent Memo Pad Bookmark Marker Memo Sticker Paper Office School Supplies ",
     "price": 1.9,
     "img": "https://img.ltwebstatic.com/images3_pi/2022/11/02/16673612219e0631271b546c59ca1a4d0925e80393_thumbnail_900x.webp",
-    "category": "School Supplies"
+    "category": "School Supplies",
+    "Sale": 15
   },
   {
     "title": " Eraser",
