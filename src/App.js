@@ -14,10 +14,18 @@ import Cart from "../src/components/cart/Cart";
 import { createContext, useState } from "react";
 export const ItemContext = createContext([]);
 
-function App() {
-  const [item, setItem] = useState([]);
 
+
+import { isLoginContext } from "./loginContext";
+
+ 
+function App() {
+
+const [isLogin , setIsLogin] = useState(false)
+  const [item, setItem] = useState([]);
   return (
+    <isLoginContext.Provider value={{isLogin , setIsLogin  }}>
+
     <Router>
       <Layout>
 
@@ -37,6 +45,7 @@ function App() {
 
       </Layout>
     </Router>
+    </isLoginContext.Provider>
   );
 }
 

@@ -1,8 +1,9 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { useState } from "react";
+import { useState ,useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { isLoginContext } from "../../loginContext";
 
 import app from "../../firebase.config";
 import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
@@ -14,7 +15,12 @@ const googleProvider = new GoogleAuthProvider();
 // login with facebook
 const facebookProvider = new FacebookAuthProvider();
 const auth = getAuth(app);
+
+
+
 export default function Register() {
+  
+  const {isLogin , setIsLogin}= useContext(isLoginContext);
   const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
 
@@ -27,7 +33,8 @@ export default function Register() {
         window.localStorage.setItem("user", JSON.stringify(user));
       })
       .then(() => {
-        navigate("/profile");
+        navigate("/");
+        setIsLogin(true)
       })
       .catch((error) => {
         console.log(error);
@@ -41,7 +48,8 @@ export default function Register() {
         window.localStorage.setItem("user", JSON.stringify(user));
       })
       .then(() => {
-        navigate("/profile");
+        navigate("/");
+        setIsLogin(true)
       })
       .catch((error) => {
         console.log(error);
@@ -117,12 +125,13 @@ export default function Register() {
     };
     window.localStorage.setItem("user", JSON.stringify(data));
     navigate("/");
+    setIsLogin(true)
   }
 
   return (
     <>
       <div
-        className="w-full h-full bg-zinc-900 flex items-center justify-center p-5 "
+        className="w-full h-full bg-zinc-900 flex items-center justify-center p-5 font-sans"
         style={{
           backgroundImage: 'URL("./images/symbol-scatter-haikei.svg")',
           backgroundRepeat: "no-repeat",
@@ -130,29 +139,29 @@ export default function Register() {
         }}
       >
         <div
-          className="shadow rounded shadow-white p-4   text-center bg-slate-50 flex  flex-col"
+          className="shadow rounded shadow-white p-4   text-center bg-slate-50 flex  flex-col font-sans"
           style={{ width: "800px" }}
         >
           <div className="welcom">
-            <h1 className="text-3xl my-4 font-bold">
+            <h1 className="text-3xl my-4 font-bold font-sans text-black">
               Sign Up <span style={{ color: "#F1A661" }}>Now</span>
             </h1>
-            <p className="my-3">
+            <p className="my-3 font-sans text-black">
               Hey, Enter Your Details to Get Sign Up to Our Family
             </p>
           </div>
 
-          <div className="register-info flex items-center justify-evenly  ">
+          <div className="register-info flex items-center justify-evenly font-sans ">
             <form action="#" onSubmit={handleSubmit} className="w-[300px]">
               <div>
                 <label
-                  className="flex flex-col mt-5 mb-2 gap-1  items-start"
+                  className="flex flex-col mt-5 mb-2 gap-1  items-start font-sans text-black"
                   htmlFor="fullName"
                 >
                   Full Name
                   <input
                     id="fullName"
-                    className="p-2 border w-full outline-none rounded-lg active:border"
+                    className="p-2 border w-full outline-none rounded-lg active:border font-sans"
                     style={{ borderColor: "#F1A661" }}
                     type="text"
                     name="fullName"
@@ -164,13 +173,13 @@ export default function Register() {
               </div>
               <div>
                 <label
-                  className="flex flex-col my-3 gap-1  items-start"
+                  className="flex flex-col my-3 gap-1  items-start font-sans text-black"
                   htmlFor="email"
                 >
                   Email
                   <input
                     id="email"
-                    className="p-2 border w-full outline-none rounded-lg active:border"
+                    className="p-2 border w-full outline-none rounded-lg active:border font-sans"
                     style={{ borderColor: "#F1A661" }}
                     type="email"
                     name="email"
@@ -195,13 +204,13 @@ export default function Register() {
               </div>
               <div>
                 <label
-                  className="flex flex-col my-3 gap-1  items-start"
+                  className="flex flex-col my-3 gap-1  items-start font-sans text-black"
                   htmlFor="password"
                 >
                   Password
                   <input
                     id="password"
-                    className="p-2 border w-full outline-none rounded-lg"
+                    className="p-2 border w-full outline-none rounded-lg font-sans"
                     style={{ borderColor: "#F1A661" }}
                     type="password"
                     name="password"
@@ -228,13 +237,13 @@ export default function Register() {
               </div>
               <div>
                 <label
-                  className="flex flex-col my-3 gap-1  items-start"
+                  className="flex flex-col my-3 gap-1  items-start font-sans text-black"
                   htmlFor="confirmPassword"
                 >
                   Confirm Password
                   <input
                     id="confirmPassword"
-                    className="p-2 border w-full outline-none rounded-lg"
+                    className="p-2 border w-full outline-none rounded-lg font-sans"
                     style={{ borderColor: "#F1A661" }}
                     type="password"
                     name="confirmPassword"
@@ -259,13 +268,13 @@ export default function Register() {
               </div>
               <div>
                 <label
-                  className="flex flex-col my-3 gap-1  items-start"
+                  className="flex flex-col my-3 gap-1  items-start font-sans text-black"
                   htmlFor="phoneNumber"
                 >
                   Phone Number
                   <input
                     id="phoneNumber"
-                    className="p-2 border w-full outline-none rounded-lg"
+                    className="p-2 border w-full outline-none rounded-lg font-sans"
                     style={{ borderColor: "#F1A661" }}
                     type="text"
                     name="phoneNumber"
@@ -290,14 +299,14 @@ export default function Register() {
                   </p>
                 )}
               </div>
-              <button className="w-full bg-[#F1A661] font-bold rounded-lg shadow-lg  my-3 text-black p-2  transition hover:bg-[#E99141]  ">
+              <button  className="w-full bg-[#F1A661] font-bold rounded-lg shadow-lg  my-3 text-black p-2  transition hover:bg-[#E99141] font-sans ">
                 {" "}
                 Sign Up
               </button>
               <p>
                 Already Have An Account ?
                 <Link
-                  className="text-[#F1A661] mx-2 underline hover:text-[#E99141]"
+                  className="text-[#F1A661] mx-2 underline hover:text-[#E99141] font-sans"
                   to="/login"
                 >
                   Sign In
@@ -307,17 +316,17 @@ export default function Register() {
             <div
               style={{ height: "400px", border: "0.4px solid #F1A661" }}
             ></div>
-            <div className="social flex flex-col self-start my-9">
+            <div className="social flex flex-col self-start my-9 font-sans">
               <button
                 onClick={handleLoginGoogle}
-                className="w-full  rounded-lg shadow-lg  bg-zinc-900 my-3 text-white p-2 hover:bg-zinc-950 transition flex items-center gap-2 justify-center "
+                className="w-full  rounded-lg shadow-lg  bg-zinc-900 my-3 text-white p-2 hover:bg-zinc-950 transition flex items-center gap-2 justify-center font-sans "
               >
                 {" "}
                 <FcGoogle /> Sign Up with Google
               </button>
               <button
                 onClick={handleLoginFacebook}
-                className="w-full  rounded-lg shadow-lg  bg-blue-900 my-3 text-white p-2 hover:bg-blue-950 transition flex items-center gap-2 justify-center "
+                className="w-full  rounded-lg shadow-lg  bg-blue-900 my-3 text-white p-2 hover:bg-blue-950 transition flex items-center gap-2 justify-center font-sans "
               >
                 {" "}
                 <FaFacebook /> Sign Up with Facebook

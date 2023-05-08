@@ -303,7 +303,7 @@ export default function Footer() {
         </div>
 
         <p className="text-xs text-gray-500">
-          &copy; 2022. PaperClip. All rights reserved.
+          &copy; {new Date().getFullYear()}. PaperClip. All rights reserved.
         </p>
       </div>
     </footer>
