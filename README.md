@@ -8,7 +8,7 @@
 #### Majd Foudeh
 #### Mohamed Zayed
 #### Hamzeh Dawhreh
-
+--------------
 ⚙️ TOOLS
 #### HTML5 ![image](https://user-images.githubusercontent.com/107134917/236952227-755195d0-cb61-476b-827b-b6bcdea22237.png)
 #### CSS3 ![image](https://user-images.githubusercontent.com/107134917/236952277-634e8d7f-ec2d-4161-9a84-fd02ad20c140.png)
@@ -23,7 +23,7 @@
 #### Bootstrap ![image](https://user-images.githubusercontent.com/107134917/236952355-cf1df9e5-026e-41fd-9fc6-e5b9a34de149.png)
 #### Figma online tool ![image](https://user-images.githubusercontent.com/107134917/236952402-31f715aa-a668-43bb-8424-38ce90f70b3b.png)
 #### Trello online tool ![image](https://user-images.githubusercontent.com/107134917/236952420-5acc4236-4c4a-4a4e-bf41-00e0ab466319.png)
-
+---------------
 📎 Links:
 ### ▷ [Live URL]()
 ### ▷ [ Wireframe & MockUp](https://www.figma.com/file/dWBwAsIBPF86EXw5tBGoU7/stationary-e-commerce?type=design&node-id=0-1&t=ZHJTeKFhiDdw1va3-0)
