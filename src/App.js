@@ -6,6 +6,10 @@ import Login from "./components/Login-sigup-pages/Login";
 import ProductsPage from "./components/ProductsPage/ProductsPage";
 // import Checkout from "./components/Checkout/Checkout";
 import { ProductDetails } from "./components/product details/productDetails";
+
+import Cart from '../src/components/cart/Cart'
+import { ContactUs } from "./components/Contact us/ContactUs";
+import { AboutUs } from "./components/About Us/AboutUs";
 import Cart from "../src/components/cart/Cart";
 import { createContext, useState } from "react";
 export const ItemContext = createContext([]);
@@ -16,6 +20,7 @@ function App() {
   return (
     <Router>
       <Layout>
+
         <ItemContext.Provider value={{ item, setItem }}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
@@ -23,10 +28,13 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/productsPage" element={<ProductsPage />} />
             <Route path="cartPage" element={<Cart />} />
+              <Route path="aboutAsPage" element={<AboutUs/>}/>
+          <Route path="contactUsPage" element={<ContactUs/>}/>
             <Route path="/ProductDetailsPage" element={<ProductDetails />} />
             {/* <Route path="cartPage" element={<Cart />} /> */}
           </Routes>
         </ItemContext.Provider>
+
       </Layout>
     </Router>
   );
