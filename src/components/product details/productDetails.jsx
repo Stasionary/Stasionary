@@ -4,7 +4,7 @@ import { counterContext } from "../../App";
 
 import Products from "../JsonFiels/Products.json";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const ProductDetails = () => {
   const { counter, setCounter } = useContext(counterContext);
@@ -55,12 +55,12 @@ export const ProductDetails = () => {
               <div className="text-sm breadcrumbs">
                 <ul>
                   <li>
-                    <a>Home</a>
+                    <Link onClick={()=>{navigate(-2)}}>Home</Link>
                   </li>
                   <li>
-                    <a>Documents</a>
+                    <Link onClick={()=>{navigate(-1)}} >Products Page</Link>
                   </li>
-                  <li>Add Document</li>
+                  <li>Product Details</li>
                 </ul>
               </div>
             </div>
@@ -146,7 +146,7 @@ export const ProductDetails = () => {
         <div className="flex justify-around flex-wrap mb-12">
           <div
             key=""
-            className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md"
+            className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-[#F5EBEB] m-5 rounded-md"
           >
             <a href="#">
               <img
@@ -185,7 +185,7 @@ export const ProductDetails = () => {
           </div>
           <div
             key=""
-            className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md"
+            className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-[#F5EBEB] m-5 rounded-md"
           >
             <a href="#">
               <img
@@ -224,7 +224,7 @@ export const ProductDetails = () => {
           </div>
           <div
             key=""
-            className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md"
+            className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-[#F5EBEB] m-5 rounded-md"
           >
             <a href="#">
               <img
@@ -263,7 +263,7 @@ export const ProductDetails = () => {
           </div>
           <div
             key=""
-            className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-primary m-5 rounded-md"
+            className="w-full sm:w-1/2 md:w-1/4 xl:w-1/5 p-6 flex flex-col bg-[#F5EBEB] m-5 rounded-md"
           >
             <a href="#">
               <img
