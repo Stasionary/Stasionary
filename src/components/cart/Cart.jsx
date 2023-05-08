@@ -76,7 +76,9 @@ export const Cart = () => {
             <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
               <div>
                 <dt className="inline text-sm">price: </dt>
-                <dd className="inline text-sm">{item.price}JD</dd>
+                <dd className="inline text-sm">
+                  {item.roundedPrice || item.price}JD
+                </dd>
               </div>
             </dl>
           </div>
