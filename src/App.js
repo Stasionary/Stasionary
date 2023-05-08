@@ -1,3 +1,4 @@
+// import Search from './components/Search/Search'
 import { isLoginContext } from "./loginContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Navbar/Layout";
@@ -10,8 +11,8 @@ import { ContactUs } from "./components/Contact us/ContactUs";
 import { AboutUs } from "./components/About Us/AboutUs";
 import Cart from "../src/components/cart/Cart";
 import { createContext, useState } from "react";
+import Search from "./components/Search/Search";
 export const ItemContext = createContext([]);
-
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
               <Route path="aboutAsPage" element={<AboutUs />} />
               <Route path="contactUsPage" element={<ContactUs />} />
               <Route path="/ProductDetailsPage" element={<ProductDetails />} />
+              {/* <Route path="SearchBar" element={<Search/>}/> */}
+              <Route path='SearchPage' element={<Search/>}/>
               {/* <Route path="cartPage" element={<Cart />} /> */}
             </Routes>
           </ItemContext.Provider>
