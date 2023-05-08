@@ -25,7 +25,7 @@ export default function Login() {
   // const userData = useContext(useContext);
 
   const handleLoginFacebook = async () => {
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
         // The signed-in user info.
@@ -34,14 +34,15 @@ export default function Login() {
       })
       .then(() => {
         navigate("/");
-        setIsLogin(true);
+        // setIsLogin(true);
+        sessionStorage.setItem("isLogin" , true)
       })
       .catch((error) => {
         console.log(error);
       });
   };
   const handleLoginGoogle = async () => {
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
@@ -49,7 +50,8 @@ export default function Login() {
       })
       .then(() => {
         navigate("/");
-        setIsLogin(true);
+        // setIsLogin(true);
+        sessionStorage.setItem("isLogin" , true)
       })
       .catch((error) => {
         console.log(error);
@@ -94,13 +96,15 @@ export default function Login() {
   // handle submit on click button
 
   function handleSubmit(event) {
+    window.sessionStorage.clear()
     event.preventDefault();
     // console.log(user);
     checkAccount(user);
 
     if (IsFound === true) {
       navigate("/");
-      setIsLogin(true);
+      // setIsLogin(true);
+      window.sessionStorage.setItem("isLogin" , true)
     } else {
       alert(
         "email or password are inccorect , please check your info then try again"

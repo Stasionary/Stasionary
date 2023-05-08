@@ -2,10 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { ItemContext } from "../../App";
+import { counterContext } from "../../App";
 
 import Products from "../JsonFiels/Products.json";
 
 export default function Content() {
+  const {counter , setCounter} = useContext(counterContext)
+
   const { item, setItem } = useContext(ItemContext);
   const [timeLeft, setTimeLeft] = useState(18000);
   const hours = Math.floor(timeLeft / 3600);
@@ -34,15 +37,19 @@ export default function Content() {
     const selectedProduct = Products.find(
       (product) => product.id === event.target.id
     );
+    setCounter(counter + 1);
     // Retrieve previous items from local storage
     const storedItems = JSON.parse(localStorage.getItem("newItem")) || [];
     // Add the new item to the array of stored items
     const updatedItems = [...storedItems, selectedProduct];
 
     setItem(() => [...updatedItems]);
-
+    
     localStorage.setItem("newItem", JSON.stringify(updatedItems));
+    setCounter(counter + 1)
+    
   }
+
   return (
     <>
       <br />
@@ -237,7 +244,6 @@ export default function Content() {
           </div>
         </div>
       </div>
-
     </>
   );
 }
