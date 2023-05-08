@@ -8,6 +8,7 @@ import Products from "../JsonFiels/Products.json";
 
 export default function Content() {
   const {counter , setCounter} = useContext(counterContext)
+
   const { item, setItem } = useContext(ItemContext);
   const [timeLeft, setTimeLeft] = useState(18000);
   const hours = Math.floor(timeLeft / 3600);
@@ -36,6 +37,7 @@ export default function Content() {
     const selectedProduct = Products.find(
       (product) => product.id === event.target.id
     );
+    setCounter(counter + 1);
     // Retrieve previous items from local storage
     const storedItems = JSON.parse(localStorage.getItem("newItem")) || [];
     // Add the new item to the array of stored items
@@ -47,6 +49,7 @@ export default function Content() {
     setCounter(counter + 1)
     
   }
+
   return (
     <>
       <br />
@@ -238,29 +241,6 @@ export default function Content() {
                 Things on a very small that you have any direct
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-center	m-20 gap-20">
-        <div className="sale-card">
-          <div className="discount-badge">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              width={15}
-            >
-              <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z" />
-            </svg>
-            <p>-30%</p>
-          </div>
-          <img src="./Images/notebook.png" height={280} width={200} />
-          <br />
-          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 ">
-            <div className="bg-blue-600 h-2.5 rounded-full sold-bar "></div>
-          </div>
-          <br />
-          <div className="flex justify-around">
-            $10.99 <small className="line-through ">$18.99</small>
           </div>
         </div>
       </div>
