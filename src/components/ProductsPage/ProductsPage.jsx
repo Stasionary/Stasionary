@@ -7,6 +7,8 @@ import Products from "../JsonFiels/Products.json";
 import { Link } from "react-router-dom";
 import { ItemContext } from "../../App";
 import { counterContext } from "../../App";
+import './ProductsPage.css'
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -58,11 +60,14 @@ const ProductsPage = () => {
     filteredCategory.length > 2 ? setAbc(filteredCategory) : setAbc(Products);
     filteredCategoryAfterClicking = filteredCategory;
   }
+
+  const [search, setsearch] = useState("")
+
   const Cards = abc.map((product, index) => {
     return (
       <div
         key={index}
-        className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-primary m-5 rounded-md"
+        className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-[#867070] m-5 rounded-md"
       >
         <a href="#">
           <img
@@ -76,7 +81,7 @@ const ProductsPage = () => {
             <p className="ml-20  text-gray-900">{product.price} JD</p>
           </div>
 
-          <div className="flex justify-around mt-3">
+          <div className="flex flex-wrap mt-3">
             <button
               className="btn btn-outline "
               id={product.id}
@@ -111,11 +116,20 @@ const ProductsPage = () => {
       </div>
     );
   });
-  const CardsFiltered = abc.map((product, index) => {
+  const CardsFiltered = abc.filter((product) => {
+    const searchLowerCase = search.toLowerCase();
+    const searchUpperCase = search.toUpperCase();
+    const titleLowerCase = product.title.toLowerCase();
+    const titleUpperCase = product.title.toUpperCase();
+
+    return searchLowerCase === '' ? product :
+      titleLowerCase.includes(searchLowerCase) ||
+      titleUpperCase.includes(searchUpperCase);
+  }).map((product, index) => {
     return (
       <div
         key={index}
-        className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-primary m-5 rounded-md"
+        className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-[#F5EBEB] m-5 rounded-md"
       >
         <a href="#">
           <img
@@ -124,12 +138,12 @@ const ProductsPage = () => {
             className="hover:grow hover:shadow-lg"
             src={product.img}
           />
-          <div className="flex items-center mt-5 justify-between">
+          <div className="flex flex-wrap  items-center mt-5 justify-around">
             <p className="">{product.title}</p>
-            <p className="ml-20  text-gray-900">{product.price} JD</p>
+            <p className="  text-gray-900">{product.price} JD</p>
           </div>
 
-          <div className="flex justify-around mt-3">
+          <div className="flex flex-wrap justify-center mt-3 gap-2">
             <button
               className="btn btn-outline "
               id={product.id}
@@ -167,10 +181,22 @@ const ProductsPage = () => {
   console.log(CardsFiltered);
   return (
     <div>
+      <div className="bg-black banner flex flex-col justify-center align-middle" style={{ height: "300px" }}>
+        <div className="text-7xl text-black ml-10 mb-3">Shop</div>
+
+        <div className="text-base breadcrumbs ml-10  text-black">
+          <ul>
+            <li><a>Home</a></li>
+            <li><a>Documents</a></li>
+            <li>Add Document</li>
+          </ul>
+        </div>
+
+      </div>
       <>
-        <section className="bg-white dark:bg-gray-900">
+        <section className="bg-white ">
           <div className="container px-6 py-8 mx-auto">
-            <div className="lg:flex lg:-mx-2">
+            <div className="lg:flex lg:-mx-2 ">
               <div className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
                 <h1>Categories</h1>
                 <a
@@ -244,11 +270,71 @@ const ProductsPage = () => {
                   Filing and Organization
                 </a>
               </div>
-              <section className="bg-white py-8 ">
-                <div className="container mx-auto flex items-center flex-wrap pb-12">
-                  {abc === false ? Cards : CardsFiltered}
+              <div className="flex flex-col ">
+
+                <div className="flex flex-wrap justify-around gap-x-52">
+                  <div className="flex flex-col justify-end">
+                    <h1 className="text-3xl text-black mt-5">Stasionary Shop</h1>
+                  </div>
+                  <form className="flex justify-end  mt-10">
+                    <label htmlFor="simple-search" className="sr-only">
+                      Search
+                    </label>
+                    <div className="relative ">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg
+                          aria-hidden="true"
+                          className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        id="simple-search"
+                        className="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#867070] focus:border-[#867070] block w-20vw pl-10 p-2.5  dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-[#c4b2b2] dark:focus:border-[#867070]"
+                        placeholder="Search"
+                        required=""
+                        onChange={(e) => setsearch(e.target.value)}
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="p-2.5 ml-1 text-sm font-medium text-white bg-[#867070] rounded-lg border border-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[#867070] dark:hover:bg-[#c2afaf] dark:focus:ring-[#867070]"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                      <span className="sr-only">Search</span>
+                    </button>
+                  </form>
                 </div>
-              </section>
+
+
+                <section className="bg-white py-8 ">
+                  <div className="container mx-auto flex items-center justify-center flex-wrap pb-12">
+                    {abc === false ? Cards : CardsFiltered}
+                  </div>
+                </section>
+              </div>
             </div>
           </div>
         </section>

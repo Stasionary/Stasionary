@@ -16,6 +16,7 @@ import Search from "./components/Search/Search";
 import { PhoneNumberProvider } from "./components/Checkout/PhoneNumberContext";
 import Review from "./components/Checkout/Review";
 import Checkout from "./components/Checkout/Checkout";
+import BookSection from "./components/LandingPage/bookSection";
 
 
 export const ItemContext = createContext([]);
@@ -51,6 +52,7 @@ function App() {
                   <Route path='SearchPage' element={<Search />} />
                   {/* <Route path="cartPage" element={<Cart />} /> */}
                   <Route path="/CheckoutPage" element={<Checkout />} />
+                  <Route path="BookSection" element={<BookSection/>}/>
                 </Routes>
               </ItemContext.Provider>
 
