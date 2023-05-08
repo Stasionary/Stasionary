@@ -17,8 +17,6 @@ import { PhoneNumberProvider } from "./components/Checkout/PhoneNumberContext";
 import Review from "./components/Checkout/Review";
 import Checkout from "./components/Checkout/Checkout";
 
-export const ItemContext = createContext([]);
-
 
 export const ItemContext = createContext([]);
 export const counterContext = createContext([]);
