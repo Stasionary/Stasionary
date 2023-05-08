@@ -14,8 +14,11 @@ import { createContext, useState } from "react";
 
 import Search from "./components/Search/Search";
 import { PhoneNumberProvider } from "./components/Checkout/PhoneNumberContext";
-// import Review from "./components/Checkout/Review";
+import Review from "./components/Checkout/Review";
 import Checkout from "./components/Checkout/Checkout";
+
+export const ItemContext = createContext([]);
+
 
 export const ItemContext = createContext([]);
 export const counterContext = createContext([]);
@@ -25,6 +28,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [item, setItem] = useState([]);
   return (
+
 
 
     <counterContext.Provider value={{ counter, setCounter }}>
