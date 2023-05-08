@@ -15,7 +15,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+// import MyForm from './MyForm';
 // import MapComponent from './MapComponent';
+import { useState } from 'react';
 
 function Copyright() {
     return (
@@ -48,6 +50,15 @@ function getStepContent(step) {
 const theme = createTheme();
 
 export default function Checkout() {
+    
+    const [formData, setFormData] = useState({});  // from here
+
+    const handleInputChange = (fieldName, value) => {
+        setFormData({
+            ...formData,
+            [fieldName]: value
+        })
+    }  // to here
     const [activeStep, setActiveStep] = React.useState(0);
 
     const handleNext = () => {
@@ -61,10 +72,13 @@ export default function Checkout() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
+          
+            <Container component="main" maxWidth="sm" sx={{ mb: 4 }} style={{ backgroundColor: '#867070' }} >
             <AppBar
-                position="absolute"
-                color="default"
-                elevation={5}
+                position="relative"
+                // color="default"
+                style={{ backgroundColor: '#F5EBEB' }}
+                elevation={0}
                 sx={{
                     position: 'relative',
                     borderBottom: (t) => `1px solid ${t.palette.divider}`,
@@ -78,7 +92,6 @@ export default function Checkout() {
                     ))}
                 </Stepper>
             </AppBar>
-            <Container component="main" maxWidth="sm" sx={{ mb: 4 }} style={{ backgroundColor: '#867070' }} >
                 <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} style={{ backgroundColor: '#F5EBEB' }}>
                     <Typography component="h1" variant="h4" align="center">
                         Checkout
@@ -105,7 +118,8 @@ export default function Checkout() {
                                         Back
                                     </Button>
                                 )}
-
+                                {/* and here the one below */}
+                                {/* <AddressForm handleInputChange={handleInputChange} /> */}
                                 <Button
                                     variant="contained"
                                     onClick={handleNext}
@@ -119,6 +133,7 @@ export default function Checkout() {
                     )}
                 </Paper>
                 <Copyright />
+                {/* <MyForm /> */}
             </Container>
         </ThemeProvider>
     );

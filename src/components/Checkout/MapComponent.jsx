@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GoogleMap, Marker } from '@react-google-maps/api';
 
 function MapComponent() {
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState({lat: 0, lng: 0});
 
   const handleMapClick = (event) => {
     setSelectedLocation({
