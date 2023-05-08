@@ -6,7 +6,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Products from "../JsonFiels/Products.json";
 import { Link } from "react-router-dom";
 import { ItemContext } from "../../App";
+
 import Search from '../Search/Search'
+
+
+import { counterContext } from "../../App";
 
 const theme = createTheme({
   palette: {
@@ -19,12 +23,18 @@ const theme = createTheme({
 const ProductsPage = () => {
   const navigate = useNavigate();
   const { item, setItem } = useContext(ItemContext);
+  const { counter, setCounter } = useContext(counterContext);
 
   function AddToCart(event) {
     event.preventDefault();
     const selectedProduct = Products.find(
       (product) => product.id === event.target.id
     );
+    function counter(event) {
+      const selectedProduct =
+        Products.filter((product) => product.id === event.target.id) + 1;
+      console.log(selectedProduct);
+    }
     // Retrieve previous items from local storage
     const storedItems = JSON.parse(localStorage.getItem("newItem")) || [];
     // Add the new item to the array of stored items
