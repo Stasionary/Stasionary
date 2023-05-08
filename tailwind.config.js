@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#F5EBEB",
-        pagination: "#867070"
+        // primary: "#F5EBEB",
+        // pagination: "#867070",
+        
       }
     },
   },

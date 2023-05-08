@@ -7,9 +7,20 @@ import ProductsPage from "./components/ProductsPage/ProductsPage";
 // import Checkout from "./components/Checkout/Checkout";
 import { ProductDetails } from "./components/product details/productDetails";
 import Cart from '../src/components/cart/Cart'
+import { useState } from "react";
 
+import { isLoginContext } from "./loginContext";
+
+ 
 function App() {
+const [isLogin , setIsLogin] = useState(false)
+
+
+
+// console.log(isLogin); 
   return (
+    <isLoginContext.Provider value={{isLogin , setIsLogin  }}>
+
     <Router>
       <Layout>
         <Routes>
@@ -24,6 +35,7 @@ function App() {
         </Routes>
       </Layout>
     </Router>
+    </isLoginContext.Provider>
   );
 }
 
