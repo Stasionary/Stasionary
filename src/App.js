@@ -11,35 +11,37 @@ import { AboutUs } from "./components/About Us/AboutUs";
 import Cart from "../src/components/cart/Cart";
 import { createContext, useState } from "react";
 export const ItemContext = createContext([]);
-
+export const counterContext = createContext([]);
 
 function App() {
-
-  const [isLogin, setIsLogin] = useState(false)
+  const [counter, setCounter] = useState(0);
+  const [isLogin, setIsLogin] = useState(false);
   const [item, setItem] = useState([]);
   return (
-    <isLoginContext.Provider value={{ isLogin, setIsLogin }}>
-
-      <Router>
-        <Layout>
-
-          <ItemContext.Provider value={{ item, setItem }}>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/productsPage" element={<ProductsPage />} />
-              <Route path="cartPage" element={<Cart />} />
-              <Route path="aboutAsPage" element={<AboutUs />} />
-              <Route path="contactUsPage" element={<ContactUs />} />
-              <Route path="/ProductDetailsPage" element={<ProductDetails />} />
-              {/* <Route path="cartPage" element={<Cart />} /> */}
-            </Routes>
-          </ItemContext.Provider>
-
-        </Layout>
-      </Router>
-    </isLoginContext.Provider>
+    <counterContext.Provider value={{ counter, setCounter }}>
+      <isLoginContext.Provider value={{ isLogin, setIsLogin }}>
+        <Router>
+          <Layout>
+            <ItemContext.Provider value={{ item, setItem }}>
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/productsPage" element={<ProductsPage />} />
+                <Route path="cartPage" element={<Cart />} />
+                <Route path="aboutAsPage" element={<AboutUs />} />
+                <Route path="contactUsPage" element={<ContactUs />} />
+                <Route
+                  path="/ProductDetailsPage"
+                  element={<ProductDetails />}
+                />
+                {/* <Route path="cartPage" element={<Cart />} /> */}
+              </Routes>
+            </ItemContext.Provider>
+          </Layout>
+        </Router>
+      </isLoginContext.Provider>
+    </counterContext.Provider>
   );
 }
 
