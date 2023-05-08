@@ -1,6 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { useState ,useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { isLoginContext } from "../../loginContext";
@@ -16,16 +16,13 @@ const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const auth = getAuth(app);
 
-
-
 export default function Register() {
-  
-  const {isLogin , setIsLogin}= useContext(isLoginContext);
+  const { isLogin, setIsLogin } = useContext(isLoginContext);
   const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
 
   const handleLoginFacebook = async () => {
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
         // The signed-in user info.
@@ -34,7 +31,8 @@ export default function Register() {
       })
       .then(() => {
         navigate("/");
-        setIsLogin(true)
+        // setIsLogin(true)
+        window.sessionStorage.setItem("isLogin", true);
       })
       .catch((error) => {
         console.log(error);
@@ -49,7 +47,8 @@ export default function Register() {
       })
       .then(() => {
         navigate("/");
-        setIsLogin(true)
+        // setIsLogin(true)
+        window.sessionStorage.setItem("isLogin", true);
       })
       .catch((error) => {
         console.log(error);
@@ -125,7 +124,8 @@ export default function Register() {
     };
     window.localStorage.setItem("user", JSON.stringify(data));
     navigate("/");
-    setIsLogin(true)
+    // setIsLogin(true)
+    window.sessionStorage.setItem("isLogin", true);
   }
 
   return (
@@ -299,7 +299,7 @@ export default function Register() {
                   </p>
                 )}
               </div>
-              <button  className="w-full bg-[#F1A661] font-bold rounded-lg shadow-lg  my-3 text-black p-2  transition hover:bg-[#E99141] font-sans ">
+              <button className="w-full bg-[#F1A661] font-bold rounded-lg shadow-lg  my-3 text-black p-2  transition hover:bg-[#E99141] font-sans ">
                 {" "}
                 Sign Up
               </button>

@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useContext } from "react";
 import Products from "../JsonFiels/Products.json";
 import { counterContext } from "../../App";
-
 export const Cart = () => {
   // function calculatePrice() {
   // let total = 0;
@@ -47,6 +46,7 @@ export const Cart = () => {
   const { counter, setCounter } = useContext(counterContext);
 
   function handleDelete(id) {
+    setCounter(counter === 0 ? counter : counter - 1 )
     setChange(change.filter((card) => id !== card.id));
 
     localStorage.setItem("newItem", JSON.stringify(change));

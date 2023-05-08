@@ -7,7 +7,7 @@ import { counterContext } from "../../App";
 import Products from "../JsonFiels/Products.json";
 
 export default function Content() {
-  const { counter, setCounter } = useContext(counterContext);
+  const {counter , setCounter} = useContext(counterContext)
 
   const { item, setItem } = useContext(ItemContext);
   const [timeLeft, setTimeLeft] = useState(18000);
@@ -44,8 +44,10 @@ export default function Content() {
     const updatedItems = [...storedItems, selectedProduct];
 
     setItem(() => [...updatedItems]);
-
+    
     localStorage.setItem("newItem", JSON.stringify(updatedItems));
+    setCounter(counter + 1)
+    
   }
 
   return (

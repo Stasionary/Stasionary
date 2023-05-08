@@ -247,6 +247,8 @@ const ProductsPage = () => {
               <section className="bg-white py-8 ">
                 <div className="container mx-auto flex items-center flex-wrap pb-12">
                   {abc === false ? Cards : CardsFiltered}
+                </div>
+
 
                   </div>
                 <form className="flex items-center justify-center mt-10">
@@ -302,6 +304,7 @@ const ProductsPage = () => {
                 <div className="container mx-auto flex items-center justify-center flex-wrap pb-12">
                   {Cards}
 </div>
+
               </section>
             </div>
           </div>

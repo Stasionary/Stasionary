@@ -21,12 +21,13 @@ import Checkout from "./components/Checkout/Checkout";
 export const ItemContext = createContext([]);
 export const counterContext = createContext([]);
 
+
 function App() {
   const [counter, setCounter] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
+ 
   const [item, setItem] = useState([]);
   return (
-
 
 
     <counterContext.Provider value={{ counter, setCounter }}>
@@ -58,6 +59,7 @@ function App() {
         </Router>
       </isLoginContext.Provider>
     </counterContext.Provider>
+
 
 
     // <counterContext.Provider value={{ counter, setCounter }}>
