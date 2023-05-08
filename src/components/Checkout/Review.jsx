@@ -4,6 +4,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
+// import
+
 
 const products = [
     {
@@ -31,7 +33,7 @@ const products = [
 
 const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
 const payments = [
-    { name: 'Card type', detail: 'Visa' },
+    { name: 'Card type', detail: 'Visa', phone: '0751196646' },
     { name: 'Card holder', detail: 'Mr John Smith' },
     { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
     { name: 'Expiry date', detail: '04/2024' },
@@ -78,6 +80,9 @@ export default function Review() {
                                 </Grid>
                                 <Grid item xs={6}>
                                     <Typography gutterBottom>{payment.detail}</Typography>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Typography gutterBottom>{payment.phone}</Typography>
                                 </Grid>
                             </React.Fragment>
                         ))}
