@@ -253,7 +253,7 @@ const ProductsPage = () => {
 
                 <div className="container mx-auto flex items-center flex-wrap pb-12">
                   {abc === false ? Cards : CardsFiltered}
-
+                  </div>
                 <form className="flex items-center justify-center mt-10">
                   <label htmlFor="simple-search" className="sr-only">
                     Search
