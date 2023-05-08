@@ -6,12 +6,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Products from "../JsonFiels/Products.json";
 import { Link } from "react-router-dom";
 import { ItemContext } from "../../App";
-
-import Search from '../Search/Search'
-
-
 import { counterContext } from "../../App";
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -27,14 +22,10 @@ const ProductsPage = () => {
   const [abc, setAbc] = useState(Products);
   function AddToCart(event) {
     event.preventDefault();
-    setCounter(counter + 1)
     const selectedProduct = Products.find(
       (product) => product.id === event.target.id
     );
-
     setCounter(counter + 1);
-
-
     // Retrieve previous items from local storage
     const storedItems = JSON.parse(localStorage.getItem("newItem")) || [];
     // Add the new item to the array of stored items
@@ -128,7 +119,6 @@ const ProductsPage = () => {
         key={index}
         className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-primary m-5 rounded-md"
       >
-
         <a href="#">
           <img
             id={product.id}
@@ -178,7 +168,6 @@ const ProductsPage = () => {
   });
   console.log(CardsFiltered);
   return (
-
     <div>
       <>
         <section className="bg-white dark:bg-gray-900">
@@ -250,9 +239,9 @@ const ProductsPage = () => {
                 </a>
               </div>
               <section className="bg-white py-8 ">
-
                 <div className="container mx-auto flex items-center flex-wrap pb-12">
                   {abc === false ? Cards : CardsFiltered}
+
                   </div>
                 <form className="flex items-center justify-center mt-10">
                   <label htmlFor="simple-search" className="sr-only">
@@ -306,8 +295,7 @@ const ProductsPage = () => {
                 </form>
                 <div className="container mx-auto flex items-center justify-center flex-wrap pb-12">
                   {Cards}
-
-                </div>
+</div>
               </section>
             </div>
           </div>
