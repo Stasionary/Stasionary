@@ -1,16 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import { ItemContext } from "../../App";
+import { counterContext } from "../../App";
+
 import Products from "../JsonFiels/Products.json";
 
 import { useNavigate } from "react-router-dom";
 
 export const ProductDetails = () => {
+  const { counter, setCounter } = useContext(counterContext);
+
   const { item, setItem } = useContext(ItemContext);
   function AddToCart(event) {
     event.preventDefault();
     const selectedProduct = Products.find(
       (product) => product.id === event.target.id
     );
+    setCounter(counter + 1);
     // Retrieve previous items from local storage
     const storedItems = JSON.parse(localStorage.getItem("newItem")) || [];
     // Add the new item to the array of stored items
@@ -154,7 +159,11 @@ export const ProductDetails = () => {
               </div>
 
               <div className="flex justify-center mt-3">
-                <button className="btn btn-outline ">
+                <button
+                  className="btn btn-outline "
+                  id={prevproduct.id}
+                  onClick={AddToCart}
+                >
                   Add to cart
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +198,11 @@ export const ProductDetails = () => {
               </div>
 
               <div className="flex justify-center mt-3">
-                <button className="btn btn-outline ">
+                <button
+                  className="btn btn-outline "
+                  id={prevproduct.id}
+                  onClick={AddToCart}
+                >
                   Add to cart
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +237,11 @@ export const ProductDetails = () => {
               </div>
 
               <div className="flex justify-center mt-3">
-                <button className="btn btn-outline ">
+                <button
+                  className="btn btn-outline "
+                  id={prevproduct.id}
+                  onClick={AddToCart}
+                >
                   Add to cart
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -259,7 +276,11 @@ export const ProductDetails = () => {
               </div>
 
               <div className="flex justify-center mt-3">
-                <button className="btn btn-outline ">
+                <button
+                  className="btn btn-outline "
+                  id={prevproduct.id}
+                  onClick={AddToCart}
+                >
                   Add to cart
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -55,11 +55,9 @@ const ProductsPage = () => {
     filteredCategory = Products.filter(
       (product) => product.category === event.target.id
     );
-    console.log(filteredCategory);
-    setAbc(filteredCategory);
+    filteredCategory.length > 2 ? setAbc(filteredCategory) : setAbc(Products);
     filteredCategoryAfterClicking = filteredCategory;
   }
-  // abc = cards ? setAbc(Cards) : setAbc(CardsFiltered);
   const Cards = abc.map((product, index) => {
     return (
       <div
@@ -175,6 +173,14 @@ const ProductsPage = () => {
             <div className="lg:flex lg:-mx-2">
               <div className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
                 <h1>Categories</h1>
+                <a
+                  href="#"
+                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
+                  onClick={filterCategory}
+                  id={Products.quantity}
+                >
+                  View All{" "}
+                </a>
                 <a
                   href="#"
                   className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
