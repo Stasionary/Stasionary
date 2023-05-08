@@ -18,9 +18,6 @@ import Review from "./components/Checkout/Review";
 import Checkout from "./components/Checkout/Checkout";
 
 export const ItemContext = createContext([]);
-
-
-export const ItemContext = createContext([]);
 export const counterContext = createContext([]);
 
 function App() {
@@ -60,33 +57,6 @@ function App() {
         </Router>
       </isLoginContext.Provider>
     </counterContext.Provider>
-
-
-    // <counterContext.Provider value={{ counter, setCounter }}>
-    //   <isLoginContext.Provider value={{ isLogin, setIsLogin }}>
-    //     <Router>
-    //       <Layout>
-    //         <ItemContext.Provider value={{ item, setItem }}>
-    //           <Routes>
-    //             <Route path="/" element={<LandingPage />} />
-    //             <Route path="/register" element={<Register />} />
-    //             <Route path="/login" element={<Login />} />
-    //             <Route path="/productsPage" element={<ProductsPage />} />
-    //             <Route path="cartPage" element={<Cart />} />
-    //             <Route path="aboutAsPage" element={<AboutUs />} />
-    //             <Route path="contactUsPage" element={<ContactUs />} />
-    //             <Route
-    //               path="/ProductDetailsPage"
-    //               element={<ProductDetails />}
-    //             />
-    //             {/* <Route path="cartPage" element={<Cart />} /> */}
-    //           </Routes>
-    //         </ItemContext.Provider>
-    //       </Layout>
-    //     </Router>
-    //   </isLoginContext.Provider>
-    // </counterContext.Provider>
-
   );
 }
 
