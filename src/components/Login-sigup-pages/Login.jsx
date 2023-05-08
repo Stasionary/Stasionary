@@ -119,7 +119,7 @@ export default function Login() {
           backgroundImage: 'URL("./images/symbol-scatter-haikei.svg")',
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          
+
         }}
       >
         <div className="shadow rounded shadow-white p-4 w-96 m-auto text-center bg-slate-50 font-sans">
