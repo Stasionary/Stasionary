@@ -20,13 +20,13 @@ export const ItemContext = createContext([]);
 
 export const counterContext = createContext([]);
 
-export const priceContext = createContext([]);
+
 
 
 function App() {
   const [counter, setCounter] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
-  const [price , setPrice] = useState(0);
+ 
   const [item, setItem] = useState([]);
   return (
 <counterContext.Provider value={{ counter, setCounter }}>
