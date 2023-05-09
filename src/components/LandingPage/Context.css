@@ -1,4 +1,4 @@
-.card {
+/* .card {
     width: 190px;
     height: 254px;
     background: #6e8097;
@@ -34,7 +34,7 @@
     to {
         transform: rotate(360deg);
     }
-}
+} */
 
 /* .card::after {
     content: '';

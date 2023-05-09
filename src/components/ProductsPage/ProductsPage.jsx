@@ -186,9 +186,8 @@ const ProductsPage = () => {
 
         <div className="text-base breadcrumbs ml-10  text-black">
           <ul>
-            <li><a>Home</a></li>
-            <li><a>Documents</a></li>
-            <li>Add Document</li>
+            <li><Link onClick={() => { navigate(-1) }}>Home</Link></li>
+            <li>Products Page</li>
           </ul>
         </div>
 

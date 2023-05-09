@@ -4,16 +4,22 @@ import Content from "./Content";
 import "./landingpage.css";
 import Checkout from "../Checkout/Checkout";
 import { Cart } from "../cart/Cart";
+import BookSection from "./bookSection";
+
 
 export default function LandingPage() {
   return (
     <>
       <Hero />
       <Content />
-      
+
       {/* <Checkout />
       <Cart /> */}
+      <div>
+        <h1 className="text-3xl ml-10">Books Sctions</h1>
+        <BookSection />
 
+      </div>
     </>
   );
 }
