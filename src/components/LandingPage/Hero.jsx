@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import LandingPage from "./LandingPage";
 export default function Hero() {
   return (
     <>
@@ -15,77 +17,92 @@ export default function Hero() {
             data-carousel-item
           >
             <div className="paragraph-hero">
-              <h1> The nature candle</h1>
+              <h1> Paper Clip store</h1>
               <p>
-                The nature candleThe nature candleThe nature candleThe nature
-                candleThe nature candle
+                Always expect to pay less and get more with PaperClip Family
+              </p>
+            </div>
+
+            <img
+              src="./images/pexels-dominika-roseclay-4300394.jpg"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
+              alt="image"
+            />
+          </div>
+          <div
+            className="hidden duration-700 ease-in-out flex justify-center items-center"
+            data-carousel-item
+          >
+            {" "}
+            <div className="paragraph-hero">
+              <h1> Paper Clip store</h1>
+              <p>
+                Always expect to pay less and get more with PaperClip Family
+              </p>
+            </div>
+
+            <img
+              src="./images/pexels-olia-danilevich-5088012.jpg"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
+              alt="image"
+            />
+          </div>
+          <div
+            className="hidden duration-700 ease-in-out flex justify-center items-center"
+            data-carousel-item
+          >
+            {" "}
+            <div className="paragraph-hero">
+              <h1> Paper Clip store</h1>
+              <p>
+                Always expect to pay less and get more with PaperClip Family
+              </p>
+            </div>
+
+            <img
+              src="./images/pexels-olia-danilevich-5088011.jpg"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
+              alt="image"
+            />
+          </div>
+          {/* <div
+            className="hidden duration-700 ease-in-out flex justify-center items-center"
+            data-carousel-item
+          >
+            {" "}
+            <div className="paragraph-hero">
+              <h1> Paper Clip store</h1>
+              <p>
+                Always expect to pay less and get more with PaperClip Family
               </p>
               <button>Discover our collection</button>
             </div>
 
             <img
-              src="https://images.pexels.com/photos/5594264/pexels-photo-5594264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
-              alt="image"
-            />
-          </div>
-          <div
-            className="hidden duration-700 ease-in-out flex justify-center items-center"
-            data-carousel-item
-          >
-            {" "}
-            <div className="paragraph-hero">
-              <h1> The nature candle</h1>
-              <p>
-                The nature candleThe nature candleThe nature candleThe nature
-                candleThe nature candle
-              </p>
-              <button>Discover our collection</button>
-            </div>
-            <img
-              src="https://images.pexels.com/photos/3690543/pexels-photo-3690543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
-              alt="image"
-            />
-          </div>
-          <div
-            className="hidden duration-700 ease-in-out flex justify-center items-center"
-            data-carousel-item
-          >
-            {" "}
-            <div className="paragraph-hero">
-              <h1> The nature candle</h1>
-              <p>
-                The nature candleThe nature candleThe nature candleThe nature
-                candleThe nature candle
-              </p>
-              <button>Discover our collection</button>
-            </div>
-            <img
-              src="https://images.pexels.com/photos/9742971/pexels-photo-9742971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
-              alt="image"
-            />
-          </div>
-          <div
-            className="hidden duration-700 ease-in-out flex justify-center items-center"
-            data-carousel-item
-          >
-            {" "}
-            <div className="paragraph-hero">
-              <h1> The nature candle</h1>
-              <p>
-                The nature candleThe nature candleThe nature candleThe nature
-                candleThe nature candle
-              </p>
-              <button>Discover our collection</button>
-            </div>
-            <img
               src="./Images/bg-7.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
               alt="image"
             />
-          </div>
+          </div> */}
+          {/* <div
+            className="hidden duration-700 ease-in-out flex justify-center items-center"
+            data-carousel-item
+          >
+            {" "}
+            <div className="paragraph-hero">
+              <h1> Paper Clip store</h1>
+              <p>
+                Always expect to pay less and get more with PaperClip Family
+              </p>
+              <button>Discover our collection</button>
+            </div>
+
+            <img
+              src="./Images/bg-4.jpg"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:object-cover sm:h-full sm:object-cover"
+              alt="image"
+            />
+          </div> */}
         </div>
         <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
           <button
@@ -109,13 +126,13 @@ export default function Hero() {
             aria-label="Slide 3"
             data-carousel-slide-to="2"
           ></button>
-          <button
+          {/* <button
             type="button"
             className="w-3 h-3 rounded-full"
             aria-current="false"
             aria-label="Slide 4"
             data-carousel-slide-to="3"
-          ></button>
+          ></button> */}
           <button
             type="button"
             className="w-3 h-3 rounded-full"

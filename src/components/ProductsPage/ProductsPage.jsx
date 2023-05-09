@@ -201,7 +201,7 @@ const ProductsPage = () => {
                 <h1>Categories</h1>
                 <a
                   href="#"
-                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
+                  className="block font-medium text-amber-400 dark:text-amber-400 hover:none"
                   onClick={filterCategory}
                   id={Products.quantity}
                 >
@@ -223,7 +223,7 @@ const ProductsPage = () => {
                 </a>
                 <a
                   href="#"
-                  className="block font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  className="block font-medium text-blue-900 dark:text-blue-500 hover:underline"
                   onClick={filterCategory}
                   id="Desk Accessories"
                 >
