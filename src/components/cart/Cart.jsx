@@ -6,6 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useContext } from "react";
 import Products from "../JsonFiels/Products.json";
 import { counterContext } from "../../App";
+
+const total = Math.floor(Math.random() * 100);
+
+
 export const Cart = () => {
   // function calculatePrice() {
   // let total = 0;
@@ -46,7 +50,7 @@ export const Cart = () => {
   const { counter, setCounter } = useContext(counterContext);
 
   function handleDelete(id) {
-    setCounter(counter === 0 ? counter : counter - 1 )
+    setCounter(counter === 0 ? counter : counter - 1)
     setChange(change.filter((card) => id !== card.id));
 
     localStorage.setItem("newItem", JSON.stringify(change));
@@ -145,22 +149,19 @@ export const Cart = () => {
                   <dl className="space-y-0.5 text-sm text-gray-700">
                     <div className="flex justify-between">
                       <dt>Subtotal</dt>
-                      <dd>250 JD</dd>
+                      <dd>  {total} JD</dd>
                     </div>
 
                     <div className="flex justify-between">
                       <dt>VAT</dt>
-                      <dd>25 JD</dd>
+                      <dd> 2 JD</dd>
                     </div>
 
-                    <div className="flex justify-between">
-                      <dt>Discount</dt>
-                      <dd>-20 JD</dd>
-                    </div>
+
 
                     <div className="flex justify-between !text-base font-medium">
                       <dt>Total</dt>
-                      <dd>200 JD</dd>
+                      <dd> {total + 2} JD</dd>
                     </div>
                   </dl>
 
@@ -181,9 +182,7 @@ export const Cart = () => {
                         />
                       </svg>
 
-                      <p className="whitespace-nowrap text-xs">
-                        2 Discounts Applied
-                      </p>
+
                     </span>
                   </div>
 
