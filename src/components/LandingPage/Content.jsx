@@ -237,7 +237,7 @@ export default function Content() {
           ))}
         </div>
       </div>
-      <div className="p-10 flex  flex-wrap flex-col justify-center items-center bg-color-black bg-gray-200	 ">
+      <div className="p-10 flex text-black flex-wrap flex-col justify-center items-center bg-color-black bg-[#f5f2f2]	 ">
         <div className="w-1/2 flex flex-col justify-center">
           <h1 className="text-4xl">
             <b>Featured Products</b>
