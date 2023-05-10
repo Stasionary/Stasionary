@@ -15,11 +15,11 @@ export default function LandingPage() {
 
       {/* <Checkout />
       <Cart /> */}
-      <div>
-        <h1 className="text-3xl ml-10">Books Sctions</h1>
+      {/* <div>
+        <h1 className="text-3xl ml-10">Books Sections</h1>
         <BookSection />
 
-      </div>
+      </div> */}
     </>
   );
 }

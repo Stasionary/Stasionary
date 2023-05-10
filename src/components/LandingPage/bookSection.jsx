@@ -32,7 +32,7 @@ function BookSection() {
     useEffect(() => {
         const options = {
             method: 'GET',
-            url: '',
+            url: 'https://hapi-books.p.rapidapi.com/nominees/romance/2020',
             headers: {
                 'X-RapidAPI-Key': '9dda88e499msh80c9e8008f62435p1d728djsnfa28e5eb5c06',
                 'X-RapidAPI-Host': 'hapi-books.p.rapidapi.com'
