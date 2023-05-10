@@ -1,13 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { ItemContext } from "../../App";
 import { counterContext } from "../../App";
-import './Context.css'
+import "./Context.css";
 import Products from "../JsonFiels/Products.json";
 
 export default function Content() {
-  const { counter, setCounter } = useContext(counterContext)
+  const [abc, setAbc] = useState(Products);
+
+  const navigate = useNavigate();
+
+  const { counter, setCounter } = useContext(counterContext);
 
   const { item, setItem } = useContext(ItemContext);
   const [timeLeft, setTimeLeft] = useState(18000);
@@ -46,8 +52,58 @@ export default function Content() {
     setItem(() => [...updatedItems]);
 
     localStorage.setItem("newItem", JSON.stringify(updatedItems));
-    setCounter(counter + 1)
+    setCounter(counter + 1);
+  }
+  const categories = [
+    {
+      name: "Writing Instruments",
+      imageSrc: "./Images/writing.png",
+      category: "writing-instruments",
+    },
+    {
+      name: "Paper Products",
+      imageSrc: "./Images/PaperProduct.png",
+      category: "paper-products",
+    },
+    {
+      name: "Desk Accessories",
+      imageSrc: "./Images/Desk Accessories.png",
+      category: "desk-accessories",
+    },
+    {
+      name: "Art Supplies",
+      imageSrc: "./Images/Art Supplies.png",
+      category: "art-supplies",
+    },
+    {
+      name: "School Supplies",
+      imageSrc: "./Images/School Supplies.png",
+      category: "school-supplies",
+    },
+    {
+      name: "Presentation",
+      imageSrc: "./Images/Presentation Supplies.png",
+      category: "Presentation",
+    },
+    {
+      name: "Calendars and Planners",
+      imageSrc: "./Images/Calendars and Planners.png",
+      category: "calendars-planers",
+    },
+    {
+      name: "Filing and Organization",
+      imageSrc: "./Images/Filing and Organization.png",
+      category: "filing-organization",
+    },
+  ];
+  function filterAndNavigate(categoryName) {
+    const filteredCategory = Products.filter(
+      (product) => product.category === categoryName
+    );
 
+    setAbc(filteredCategory.length > 2 ? filteredCategory : Products);
+
+    navigate(`/productsPage/${categoryName}`);
   }
 
   return (
@@ -64,69 +120,21 @@ export default function Content() {
         now for high-quality products, competitive prices, and fast shipping.
       </p>
       <div className="landing-categories">
-        {/* <Link to={`/productsPage/${category.id}`}>
-          {" "}
-          {category.name} */}
-
-
-        {/* </Link> */}
-
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/writing.png" />
-          </div>
-          <br />
-          <p className="text-center pb-5">Writing Instruments</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/PaperProduct.png" />
-          </div>
-          <br />
-          <p className="text-center pb-5">Paper Products</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Desk Accessories.png" />
-          </div>
-          <br />
-          <p className="text-center pb-5">Desk Accessories</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Art Supplies.png" />
-          </div>
-          <br />
-          <p className="text-center pb-5">Art Supplies</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/School Supplies.png" />
-          </div>
-          <br />
-          <p className="text-center pb-5">School Supplies</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Presentation Supplies.png" />
-          </div>
-          <br />
-          <p className="text-center pb-5">Presentation Supplies</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Calendars and Planners.png" />
-          </div>
-          <br />
-          <p className="text-center pb-5">Calendars and Planners</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Filing and Organization.png" />
-          </div>
-          <br />
-          <p className="text-center pb-5">Filing and Organization</p>
-        </div>
+        {categories.map((category) => (
+          <Link to={`/productsPage/${category.name}`}>
+            <div
+              key={category.category}
+              className="categories-card"
+              onClick={() => filterAndNavigate(category.name)}
+            >
+              <div className="image-category-container">
+                <img src={category.imageSrc} alt={category.name} />
+              </div>
+              <br />
+              <p className="text-center pb-5">{category.name}</p>
+            </div>
+          </Link>
+        ))}
       </div>
       <div className="sales-container">
         <div className="flex justify-around ">
