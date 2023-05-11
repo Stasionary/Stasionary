@@ -55,13 +55,13 @@ export const Cart = () => {
   const userdata = JSON.parse(localStorage.getItem("newItem"))
   let total = 0;
 
-  for (let i = 0; i < userdata.length; i++) {
-
-    // console.log(userdata[i]["price"])
-    // setPrice(prev => prev + userdata[i]["price"])
-    total += userdata[i]["price"];
-
-  }
+  if (userdata === null) {
+  } else
+    for (let i = 0; i < userdata.length; i++) {
+      // console.log(userdata[i]["price"])
+      // setPrice(prev => prev + userdata[i]["price"])
+      total += userdata[i]["price"];
+    }
   total = Number(total.toFixed(1))
 
   // const asdf = change.filter(

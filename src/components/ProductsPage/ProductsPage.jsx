@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 // import Products from '../Products.json'
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -7,7 +7,7 @@ import Products from "../JsonFiels/Products.json";
 import { Link } from "react-router-dom";
 import { ItemContext } from "../../App";
 import { counterContext } from "../../App";
-import './ProductsPage.css'
+import "./ProductsPage.css";
 
 const theme = createTheme({
   palette: {
@@ -18,6 +18,42 @@ const theme = createTheme({
 });
 
 const ProductsPage = () => {
+  let { category } = useParams();
+  console.log(category);
+  const [selectedCategory, setSelectedCategory] = useState(category);
+  useEffect(() => {
+    // Update the selected category if the category parameter changes
+    setSelectedCategory(category);
+  }, [category]);
+  let filteredCategory;
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   const searchParams = new URLSearchParams(location.search);
+  //   const autoClick = searchParams.get("autoClick");
+
+  //   if (autoClick === "true") {
+  //     const anchorElement = document.getElementById("Paper Products");
+  //     if (anchorElement) {
+  //       anchorElement.click();
+  //     }
+  //   }
+  // }, [location.search]);
+  useEffect(() => {
+    if (category && !selectedCategory) {
+      filteredCategory = Products.filter(
+        (product) => product.category === category
+      );
+    } else if (selectedCategory && selectedCategory !== "all") {
+      filteredCategory = Products.filter(
+        (product) => product.category === selectedCategory
+      );
+    } else {
+      filteredCategory = Products;
+    }
+    setAbc(filteredCategory.length > 2 ? filteredCategory : Products);
+  }, [category, selectedCategory]);
+
   const navigate = useNavigate();
   const { item, setItem } = useContext(ItemContext);
   const { counter, setCounter } = useContext(counterContext);
@@ -51,19 +87,21 @@ const ProductsPage = () => {
     sessionStorage.setItem("newItem", JSON.stringify(array));
     navigate("/ProductDetailsPage");
   }
-  let filteredCategory;
-  let filteredCategoryAfterClicking = Products;
-  function filterCategory(event) {
-    filteredCategory = Products.filter(
-      (product) => product.category === event.target.id
-    );
-    filteredCategory.length > 2 ? setAbc(filteredCategory) : setAbc(Products);
-    filteredCategoryAfterClicking = filteredCategory;
-  }
+  // function filterCategory(event) {
+  //   event.preventDefault();
 
-  const [search, setsearch] = useState("")
+  //   const categoryName = event.target.id;
+  //   setSelectedCategory(categoryName);
 
-  const Cards = abc.map((product, index) => {
+  //   filteredCategory = Products.filter(
+  //     (product) => product.category === categoryName
+  //   );
+  //   setAbc(filteredCategory.length > 2 ? filteredCategory : Products);
+  // }
+
+  const [search, setsearch] = useState("");
+
+  const Cards = filteredCategory?.map((product, index) => {
     return (
       <div
         key={index}
@@ -83,69 +121,7 @@ const ProductsPage = () => {
 
           <div className="flex flex-wrap mt-3">
             <button
-              className="btn btn-outline "
-              id={product.id}
-              onClick={AddToCart}
-            >
-              Add to cart
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="file: ml-2 h-6 w-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                />
-              </svg>
-            </button>
-            <button
-              className="btn btn-outline-blue"
-              id={product.id}
-              onClick={AddToProductDetails}
-            >
-              {" "}
-              Details
-            </button>
-          </div>
-        </a>
-      </div>
-    );
-  });
-  const CardsFiltered = abc.filter((product) => {
-    const searchLowerCase = search.toLowerCase();
-    const searchUpperCase = search.toUpperCase();
-    const titleLowerCase = product.title.toLowerCase();
-    const titleUpperCase = product.title.toUpperCase();
-
-    return searchLowerCase === '' ? product :
-      titleLowerCase.includes(searchLowerCase) ||
-      titleUpperCase.includes(searchUpperCase);
-  }).map((product, index) => {
-    return (
-      <div
-        key={index}
-        className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-[#F5EBEB] m-5 rounded-md"
-      >
-        <a href="#">
-          <img
-            id={product.id}
-            onClick={AddToProductDetails}
-            className="hover:grow hover:shadow-lg"
-            src={product.img}
-          />
-          <div className="flex flex-wrap  items-center mt-5 justify-around">
-            <p className="">{product.title}</p>
-            <p className="  text-gray-900">{product.price} JD</p>
-          </div>
-
-          <div className="flex flex-wrap justify-center mt-3 gap-2">
-            <button
-              className="btn btn-sm text-[12px] btn-outline "
+              className="btn btn-sm btn-outline "
               id={product.id}
               onClick={AddToCart}
             >
@@ -178,29 +154,95 @@ const ProductsPage = () => {
       </div>
     );
   });
+  const CardsFiltered = abc
+    .filter((product) => {
+      const searchLowerCase = search.toLowerCase();
+      const searchUpperCase = search.toUpperCase();
+      const titleLowerCase = product.title.toLowerCase();
+      const titleUpperCase = product.title.toUpperCase();
+
+      return searchLowerCase === ""
+        ? product
+        : titleLowerCase.includes(searchLowerCase) ||
+        titleUpperCase.includes(searchUpperCase);
+    })
+    .map((product, index) => {
+      return (
+        <div
+          key={index}
+          className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col bg-[#F5EBEB] m-5 rounded-md"
+        >
+          <a href="#">
+            <img
+              id={product.id}
+              onClick={AddToProductDetails}
+              className="hover:grow hover:shadow-lg"
+              src={product.img}
+            />
+            <div className="flex flex-wrap  items-center mt-5 justify-around">
+              <p className="">{product.title}</p>
+              <p className="  text-gray-900">{product.price} JD</p>
+            </div>
+
+            <div className="flex flex-wrap justify-center mt-3 gap-2">
+              <button
+                className="btn btn-sm text-[12px] btn-outline "
+                id={product.id}
+                onClick={AddToCart}
+              >
+                Add to cart
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="file: ml-2 h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                  />
+                </svg>
+              </button>
+              <button
+                className="btn btn-sm text-[12px] btn-outline-blue"
+                id={product.id}
+                onClick={AddToProductDetails}
+              >
+                {" "}
+                Details
+              </button>
+            </div>
+          </a>
+        </div>
+      );
+    });
   console.log(CardsFiltered);
   return (
     <div>
-
       <div className="text-base breadcrumbs ml-10 my-10 font-bold text-black">
         <ul>
           <li><Link onClick={() => { navigate(-1) }}>Home</Link></li>
           <li>Products Page</li>
+          {selectedCategory && <li>{selectedCategory}</li>}
         </ul>
       </div>
-
-
       <>
         <section className="bg-white ">
-          <div className="container px-6 py-8 mx-auto ">
-            <div className="lg:flex lg:-mx-2 ">
-              <div className="space-y-3  lg:w-1/5 lg:px-2 sticky top-24 mt-10 lg:space-y-4" style={{ height: "fit-content" }}>
-                <h1>Categories</h1>
+          <div className="container px-6 py-8 mx-auto">
+            <div className="lg:flex lg:-mx-2  ">
+              <div className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4 sticky top-24" style={{ height: "fit-content" }}>
+                <h1 className="text-2xl">Categories</h1>
                 <a
                   href="#"
-                  className="block font-medium text-amber-400 dark:text-amber-400 hover:none"
-                  onClick={filterCategory}
-                  id={Products.quantity}
+                  className="block font-medium text-gray-500 dark:text-gray-500 hover:none"
+                  onClick={(e) => {
+                    console.log(e.target.id);
+                    setSelectedCategory("all");
+                  }}
+                  id="all"
                 >
                   View All{" "}
                 </a>
@@ -213,15 +255,15 @@ const ProductsPage = () => {
                 <a
                   href="#"
                   className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={filterCategory}
+                  onClick={(e) => setSelectedCategory(e.target.id)}
                   id="Paper Products"
                 >
                   Paper Products
                 </a>
                 <a
                   href="#"
-                  className="block font-medium text-blue-900 dark:text-blue-500 hover:underline"
-                  onClick={filterCategory}
+                  className="block font-medium text-gray-500 dark:text-gray-500 hover:underline"
+                  onClick={(e) => setSelectedCategory(e.target.id)}
                   id="Desk Accessories"
                 >
                   Desk Accessories
@@ -229,7 +271,7 @@ const ProductsPage = () => {
                 <a
                   href="#"
                   className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={filterCategory}
+                  onClick={(e) => setSelectedCategory(e.target.id)}
                   id="Art Supplies"
                 >
                   Art Supplies
@@ -237,7 +279,7 @@ const ProductsPage = () => {
                 <a
                   href="#"
                   className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={filterCategory}
+                  onClick={(e) => setSelectedCategory(e.target.id)}
                   id="School Supplies"
                 >
                   School Supplies
@@ -245,7 +287,7 @@ const ProductsPage = () => {
                 <a
                   href="#"
                   className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={filterCategory}
+                  onClick={(e) => setSelectedCategory(e.target.id)}
                   id="Presentation"
                 >
                   Presentation Supplies
@@ -253,7 +295,7 @@ const ProductsPage = () => {
                 <a
                   href="#"
                   className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={filterCategory}
+                  onClick={(e) => setSelectedCategory(e.target.id)}
                   id="Calendars and Planners"
                 >
                   Calendars and Planners
@@ -261,17 +303,18 @@ const ProductsPage = () => {
                 <a
                   href="#"
                   className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={filterCategory}
+                  onClick={(e) => setSelectedCategory(e.target.id)}
                   id="Filing and Organization"
                 >
                   Filing and Organization
                 </a>
               </div>
               <div className="flex flex-col ">
-
                 <div className="flex flex-wrap justify-around gap-x-52">
                   <div className="flex flex-col justify-end">
-                    <h1 className="text-3xl text-black mt-5">Stasionary Shop</h1>
+                    <h1 className="text-3xl text-black mt-5">
+                      Stasionary Shop
+                    </h1>
                   </div>
                   <form className="flex justify-end  mt-10">
                     <label htmlFor="simple-search" className="sr-only">
@@ -324,7 +367,6 @@ const ProductsPage = () => {
                     </button>
                   </form>
                 </div>
-
 
                 <section className="bg-white py-8 ">
                   <div className="container mx-auto flex items-center justify-center flex-wrap pb-12">
