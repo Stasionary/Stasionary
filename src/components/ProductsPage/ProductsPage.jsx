@@ -222,27 +222,20 @@ const ProductsPage = () => {
   console.log(CardsFiltered);
   return (
     <div>
-      <div
-        className="bg-black banner flex flex-col justify-center align-middle"
-        style={{ height: "300px" }}
-      >
-        <div className="text-7xl text-black ml-10 mb-3">Shop</div>
-
-        <div className="text-base breadcrumbs ml-10  text-black">
-          <ul>
-            <li>
-              <Link
-                onClick={() => {
-                  navigate(-1);
-                }}
-              >
-                Home
-              </Link>
-            </li>
-            <li>Products Page</li>
-            {selectedCategory && <li>{selectedCategory}</li>}
-          </ul>
-        </div>
+      <div className="text-base breadcrumbs ml-10 my-10 font-bold text-black">
+        <ul className="text-2xl">
+          <li>
+            <Link
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              Home
+            </Link>
+          </li>
+          <li>Products Page</li>
+          {selectedCategory && <li>{selectedCategory}</li>}
+        </ul>
       </div>
       <>
         <section className="bg-white ">
