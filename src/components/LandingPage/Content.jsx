@@ -108,34 +108,34 @@ export default function Content() {
 
   return (
     <>
-      <br />
-      <br />
-      <br />
 
-      <h1 className="text-center text-3xl">Categories</h1>
+      <div className="banner pt-10 pb-1">
+        <h1 className="text-center text-3xl">Categories</h1>
 
-      <br />
-      <p className="text-center">
-        Order stationery easily and hassle-free on our eCommerce website. Shop
-        now for high-quality products, competitive prices, and fast shipping.
-      </p>
-      <div className="landing-categories">
-        {categories.map((category) => (
-          <Link to={`/productsPage/${category.name}`}>
-            <div
-              key={category.category}
-              className="categories-card"
-              onClick={() => filterAndNavigate(category.name)}
-            >
-              <div className="image-category-container">
-                <img src={category.imageSrc} alt={category.name} />
+        <br />
+        <p className="text-center">
+          Order stationery easily and hassle-free on our eCommerce website. Shop
+          now for high-quality products, competitive prices, and fast shipping.
+        </p>
+        <div className="landing-categories">
+          {categories.map((category) => (
+            <Link to={`/productsPage/${category.name}`}>
+              <div
+                key={category.category}
+                className="categories-card"
+                onClick={() => filterAndNavigate(category.name)}
+              >
+                <div className="image-category-container">
+                  <img src={category.imageSrc} alt={category.name} />
+                </div>
+                <br />
+                <p className="text-center pb-5">{category.name}</p>
               </div>
-              <br />
-              <p className="text-center pb-5">{category.name}</p>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
+
       <div className="sales-container">
         <div className="flex justify-around ">
           <h3 className="text-2xl	">

@@ -27,6 +27,11 @@
   font-size: 32px;
 }
 
+.banner {
+  background: rgb(134, 112, 112);
+  background: linear-gradient(0deg, rgba(134, 112, 112, 1) 0%, rgba(195, 167, 167, 1) 19%, rgba(214, 182, 182, 1) 40%, rgba(245, 235, 235, 1) 100%);
+}
+
 .landing-categories {
   display: flex;
   flex-wrap: wrap;
@@ -45,12 +50,15 @@
 
 .categories-card {
   box-shadow: 0px 0px 4px 0px;
+  border-radius: 10px;
+  background-color: #E4D0D0;
 }
 
 .categories-card:hover,
 .sale-card:hover {
   scale: 1.1;
   transition-duration: 1s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .image-category-container {
@@ -60,6 +68,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   padding: 20px;
 }
 
