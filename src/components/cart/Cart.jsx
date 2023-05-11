@@ -46,23 +46,22 @@ export const Cart = () => {
   const { counter, setCounter } = useContext(counterContext);
 
   function handleDelete(id) {
-    setCounter(counter === 0 ? counter : counter - 1)
+    setCounter(counter === 0 ? counter : counter - 1);
     setChange(change.filter((card) => id !== card.id));
 
     localStorage.setItem("newItem", JSON.stringify(change));
   }
   // const total = JSON.parse(window.sessionStorage.getItem('totalPrice'))
-  const userdata = JSON.parse(localStorage.getItem("newItem"))
+  const userdata = JSON.parse(localStorage.getItem("newItem"));
   let total = 0;
-
-  for (let i = 0; i < userdata.length; i++) {
-
-    // console.log(userdata[i]["price"])
-    // setPrice(prev => prev + userdata[i]["price"])
-    total += userdata[i]["price"];
-
-  }
-  total = Number(total.toFixed(1))
+  if (userdata === null) {
+  } else
+    for (let i = 0; i < userdata.length; i++) {
+      // console.log(userdata[i]["price"])
+      // setPrice(prev => prev + userdata[i]["price"])
+      total += userdata[i]["price"];
+    }
+  total = Number(total.toFixed(1));
 
   // const asdf = change.filter(
   //   (item, index, array) => array.findIndex((t) => t.id === item.id) === index
