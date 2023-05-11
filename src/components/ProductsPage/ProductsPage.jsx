@@ -145,7 +145,7 @@ const ProductsPage = () => {
 
           <div className="flex flex-wrap justify-center mt-3 gap-2">
             <button
-              className="btn btn-outline "
+              className="btn btn-sm text-[12px] btn-outline "
               id={product.id}
               onClick={AddToCart}
             >
@@ -166,7 +166,7 @@ const ProductsPage = () => {
               </svg>
             </button>
             <button
-              className="btn btn-outline-blue"
+              className="btn btn-sm text-[12px] btn-outline-blue"
               id={product.id}
               onClick={AddToProductDetails}
             >
@@ -181,22 +181,20 @@ const ProductsPage = () => {
   console.log(CardsFiltered);
   return (
     <div>
-      <div className="bg-black banner flex flex-col justify-center align-middle" style={{ height: "300px" }}>
-        <div className="text-7xl text-black ml-10 mb-3">Shop</div>
 
-        <div className="text-base breadcrumbs ml-10  text-black">
-          <ul>
-            <li><Link onClick={() => { navigate(-1) }}>Home</Link></li>
-            <li>Products Page</li>
-          </ul>
-        </div>
-
+      <div className="text-base breadcrumbs ml-10 my-10 font-bold text-black">
+        <ul>
+          <li><Link onClick={() => { navigate(-1) }}>Home</Link></li>
+          <li>Products Page</li>
+        </ul>
       </div>
+
+
       <>
         <section className="bg-white ">
-          <div className="container px-6 py-8 mx-auto">
+          <div className="container px-6 py-8 mx-auto ">
             <div className="lg:flex lg:-mx-2 ">
-              <div className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
+              <div className="space-y-3  lg:w-1/5 lg:px-2 sticky top-24 mt-10 lg:space-y-4" style={{ height: "fit-content" }}>
                 <h1>Categories</h1>
                 <a
                   href="#"

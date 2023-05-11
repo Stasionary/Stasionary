@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { ItemContext } from "../../App";
 import { counterContext } from "../../App";
-import './Context.css'
+// import './Context.css'
 import Products from "../JsonFiels/Products.json";
 
 export default function Content() {
@@ -52,80 +52,79 @@ export default function Content() {
 
   return (
     <>
-      <br />
-      <br />
-      <br />
 
-      <h1 className="text-center text-3xl">Categories</h1>
+      <div className="banner pt-20 pb-1">
+        <h1 className="text-center text-3xl">Categories</h1>
 
-      <br />
-      <p className="text-center">
-        Order stationery easily and hassle-free on our eCommerce website. Shop
-        now for high-quality products, competitive prices, and fast shipping.
-      </p>
-      <div className="landing-categories">
-        {/* <Link to={`/productsPage/${category.id}`}>
+        <br />
+        <p className="text-center">
+          Order stationery easily and hassle-free on our eCommerce website. Shop
+          now for high-quality products, competitive prices, and fast shipping.
+        </p>
+        <div className="landing-categories ">
+          {/* <Link to={`/productsPage/${category.id}`}>
           {" "}
           {category.name} */}
 
 
-        {/* </Link> */}
+          {/* </Link> */}
 
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/writing.png" />
+          <div className="categories-card">
+            <div className="image-category-container">
+              <img src="./Images/writing.png" />
+            </div>
+            <br />
+            <p className="text-center pb-5">Writing Instruments</p>
           </div>
-          <br />
-          <p className="text-center pb-5">Writing Instruments</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/PaperProduct.png" />
+          <div className="categories-card">
+            <div className="image-category-container">
+              <img src="./Images/PaperProduct.png" />
+            </div>
+            <br />
+            <p className="text-center pb-5">Paper Products</p>
           </div>
-          <br />
-          <p className="text-center pb-5">Paper Products</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Desk Accessories.png" />
+          <div className="categories-card">
+            <div className="image-category-container">
+              <img src="./Images/Desk Accessories.png" />
+            </div>
+            <br />
+            <p className="text-center pb-5">Desk Accessories</p>
           </div>
-          <br />
-          <p className="text-center pb-5">Desk Accessories</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Art Supplies.png" />
+          <div className="categories-card">
+            <div className="image-category-container">
+              <img src="./Images/Art Supplies.png" />
+            </div>
+            <br />
+            <p className="text-center pb-5">Art Supplies</p>
           </div>
-          <br />
-          <p className="text-center pb-5">Art Supplies</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/School Supplies.png" />
+          <div className="categories-card">
+            <div className="image-category-container">
+              <img src="./Images/School Supplies.png" />
+            </div>
+            <br />
+            <p className="text-center pb-5">School Supplies</p>
           </div>
-          <br />
-          <p className="text-center pb-5">School Supplies</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Presentation Supplies.png" />
+          <div className="categories-card">
+            <div className="image-category-container">
+              <img src="./Images/Presentation Supplies.png" />
+            </div>
+            <br />
+            <p className="text-center pb-5">Presentation Supplies</p>
           </div>
-          <br />
-          <p className="text-center pb-5">Presentation Supplies</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Calendars and Planners.png" />
+          <div className="categories-card">
+            <div className="image-category-container">
+              <img src="./Images/Calendars and Planners.png" />
+            </div>
+            <br />
+            <p className="text-center pb-5">Calendars and Planners</p>
           </div>
-          <br />
-          <p className="text-center pb-5">Calendars and Planners</p>
-        </div>
-        <div className="categories-card">
-          <div className="image-category-container">
-            <img src="./Images/Filing and Organization.png" />
+          <div className="categories-card">
+            <div className="image-category-container">
+              <img src="./Images/Filing and Organization.png" />
+            </div>
+            <br />
+            <p className="text-center pb-5">Filing and Organization</p>
           </div>
-          <br />
-          <p className="text-center pb-5">Filing and Organization</p>
         </div>
       </div>
       <div className="sales-container">

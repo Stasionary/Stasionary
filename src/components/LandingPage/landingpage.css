@@ -12,6 +12,11 @@
   text-align: center;
 }
 
+.banner {
+  background: rgb(134, 112, 112);
+  background: linear-gradient(0deg, rgba(134, 112, 112, 1) 0%, rgba(195, 167, 167, 1) 19%, rgba(214, 182, 182, 1) 40%, rgba(245, 235, 235, 1) 100%);
+}
+
 .paragraph-hero button {
   background-color: #f1a661;
   padding: 6px 8px;
@@ -44,13 +49,16 @@
 }
 
 .categories-card {
+  border-radius: 10px;
   box-shadow: 0px 0px 4px 0px;
+  background-color: #E4D0D0;
 }
 
 .categories-card:hover,
 .sale-card:hover {
   scale: 1.1;
   transition-duration: 1s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .image-category-container {
@@ -61,6 +69,8 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .flash-sale {
