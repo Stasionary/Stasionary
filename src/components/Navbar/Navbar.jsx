@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 import "./navbar.css";
 import ProductsPage from "../ProductsPage/ProductsPage";
 import { isLoginContext } from "../../loginContext";
@@ -8,6 +8,10 @@ import { ItemContext } from "../../App";
 import { counterContext } from "../../App";
 
 export default function Navbar() {
+  const activeLink =
+    "block py-2 pl-3 pr-4 text-gray-900 bg-[#867070] rounded md:bg-transparent md:text-[#867070] md:p-0 md:dark:text-[#867070]";
+  const normalLink =
+    "block py-2 pl-3 pr-4 text-white focus:border-b-2 focus:border-[#867070]  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#867070] md:p-0 md:dark:hover:text-[#867070] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
   const { counter, setCounter } = useContext(counterContext);
 
   const navigate = useNavigate();
@@ -74,14 +78,16 @@ export default function Navbar() {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  window.sessionStorage.clear()
+                  window.sessionStorage.clear();
                   // setIsLogin(false);
                   navigate("/login");
                 }}
                 type="button"
                 className="text-white bg-[#867070] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-[#867070] dark:hover:bg-[#bea9a9] dark:focus:ring-[#867070]"
               >
-                {JSON.parse(window.sessionStorage.getItem("isLogin")) ? "Logout" : "Sign In"}
+                {JSON.parse(window.sessionStorage.getItem("isLogin"))
+                  ? "Logout"
+                  : "Sign In"}
               </button>
               <button
                 data-collapse-toggle="navbar-sticky"
@@ -112,37 +118,45 @@ export default function Navbar() {
             >
               <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-gray-700">
                 <li>
-                  <Link
+                  <NavLink
                     to="/"
-                    className="block py-2 pl-3 pr-4 text-white bg-[#867070] rounded md:bg-transparent md:text-[#867070] md:p-0 md:dark:text-[#867070]"
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
+                    }
                     aria-current="page"
                   >
                     Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="ProductsPage"
-                    className="block py-2 pl-3 pr-4 text-gray-900 focus:border-b-2 focus:border-[#867070]  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#867070] md:p-0 md:dark:hover:text-[#867070] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
+                    }
                   >
                     Products
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="aboutAsPage"
-                    className="block py-2 pl-3 pr-4 text-gray-900 focus:border-b-2 focus:border-[#867070] hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#867070] md:p-0 md:dark:hover:text-[#867070] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
+                    }
                   >
                     About us
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="contactUsPage"
-                    className="block py-2 pl-3 pr-4 text-gray-900 focus:border-b-2 focus:border-[#867070] hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#867070] md:p-0 md:dark:hover:text-[#867070] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
+                    }
                   >
                     Contact us
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>

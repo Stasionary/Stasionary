@@ -4,7 +4,7 @@ import { useNavigate, useLocation, useParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Products from "../JsonFiels/Products.json";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ItemContext } from "../../App";
 import { counterContext } from "../../App";
 import "./ProductsPage.css";
@@ -247,82 +247,84 @@ const ProductsPage = () => {
       <>
         <section className="bg-white ">
           <div className="container px-6 py-8 mx-auto">
-            <div className="lg:flex lg:-mx-2 ">
-              <div className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
-                <h1>Categories</h1>
-                <a
-                  href="#"
-                  className="block font-medium text-amber-400 dark:text-amber-400 hover:none"
-                  onClick={(e) => {
-                    console.log(e.target.id);
-                    setSelectedCategory("all");
-                  }}
-                  id="all"
-                >
-                  View All{" "}
-                </a>
-                <a
-                  href="#"
-                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                >
-                  Writing Instruments{" "}
-                </a>
-                <a
-                  href="#"
-                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={(e) => setSelectedCategory(e.target.id)}
-                  id="Paper Products"
-                >
-                  Paper Products
-                </a>
-                <a
-                  href="#"
-                  className="block font-medium text-blue-900 dark:text-blue-500 hover:underline"
-                  onClick={(e) => setSelectedCategory(e.target.id)}
-                  id="Desk Accessories"
-                >
-                  Desk Accessories
-                </a>
-                <a
-                  href="#"
-                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={(e) => setSelectedCategory(e.target.id)}
-                  id="Art Supplies"
-                >
-                  Art Supplies
-                </a>
-                <a
-                  href="#"
-                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={(e) => setSelectedCategory(e.target.id)}
-                  id="School Supplies"
-                >
-                  School Supplies
-                </a>
-                <a
-                  href="#"
-                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={(e) => setSelectedCategory(e.target.id)}
-                  id="Presentation"
-                >
-                  Presentation Supplies
-                </a>
-                <a
-                  href="#"
-                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={(e) => setSelectedCategory(e.target.id)}
-                  id="Calendars and Planners"
-                >
-                  Calendars and Planners
-                </a>
-                <a
-                  href="#"
-                  className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"
-                  onClick={(e) => setSelectedCategory(e.target.id)}
-                  id="Filing and Organization"
-                >
-                  Filing and Organization
-                </a>
+            <div className="lg:flex lg:-mx-2  ">
+              <div class="relative  ">
+                <div className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4 sticky top-32 w-full">
+                  <h1 className="dark:text-black text-2xl"> Categories</h1>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-16 truncate"
+                    onClick={(e) => {
+                      console.log(e.target.id);
+                      setSelectedCategory("all");
+                    }}
+                    id="all"
+                  >
+                    View All{" "}
+                  </a>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-40 truncate"
+                  >
+                    Writing Instruments{" "}
+                  </a>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-40 truncate"
+                    onClick={(e) => setSelectedCategory(e.target.id)}
+                    id="Paper Products"
+                  >
+                    Paper Products
+                  </a>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-40 truncate"
+                    onClick={(e) => setSelectedCategory(e.target.id)}
+                    id="Desk Accessories"
+                  >
+                    Desk Accessories
+                  </a>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-40 truncate"
+                    onClick={(e) => setSelectedCategory(e.target.id)}
+                    id="Art Supplies"
+                  >
+                    Art Supplies
+                  </a>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-40 truncate"
+                    onClick={(e) => setSelectedCategory(e.target.id)}
+                    id="School Supplies"
+                  >
+                    School Supplies
+                  </a>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-44 truncate"
+                    onClick={(e) => setSelectedCategory(e.target.id)}
+                    id="Presentation"
+                  >
+                    Presentation Supplies
+                  </a>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-44 truncate"
+                    onClick={(e) => setSelectedCategory(e.target.id)}
+                    id="Calendars and Planners"
+                  >
+                    Calendars and Planners
+                  </a>
+                  <a
+                    href="#"
+                    className="block font-medium text-gray-500 dark:text-gray-600 hover:underline w-44 truncate"
+                    onClick={(e) => setSelectedCategory(e.target.id)}
+                    id="Filing and Organization"
+                  >
+                    Filing and Organization
+                  </a>
+                </div>
               </div>
               <div className="flex flex-col ">
                 <div className="flex flex-wrap justify-around gap-x-52">
